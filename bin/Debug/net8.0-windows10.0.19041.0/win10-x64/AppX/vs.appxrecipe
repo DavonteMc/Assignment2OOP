@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-06-23T06:39:55.831</Modified>
+      <Modified>2024-06-23T19:46:59.444</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-06-23T06:39:55.715</Modified>
+      <Modified>2024-06-23T19:46:59.202</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Assignment2OOP.runtimeconfig.json">
       <PackagePath>Assignment2OOP.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Assignment2OOP.dll">
       <PackagePath>Assignment2OOP.dll</PackagePath>
-      <Modified>2024-06-23T06:39:55.514</Modified>
+      <Modified>2024-06-23T19:46:58.138</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Assignment2OOP.exe</PackagePath>
-      <Modified>2024-06-23T06:39:55.522</Modified>
+      <Modified>2024-06-23T19:46:58.158</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -72,7 +72,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
-      <Modified>2024-06-23T06:25:43.275</Modified>
+      <Modified>2024-06-23T19:39:59.929</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\CPRG 211\Repo Assignment 2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
