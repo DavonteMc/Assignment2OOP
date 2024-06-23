@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1sZu737Nw0IBuPsV0wFt8dwaTRh/r7nMyjzJrMZL0n4=",
+  "Hash": "VpY0LJbSfOUV70WGQgynfwW4MFfJeEIu0dIphqbVxgA=",
   "Source": "Assignment2OOP",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,17 +10,17 @@
     {
       "Name": "Assignment2OOP\\wwwroot",
       "Source": "Assignment2OOP",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\Assignment2OOP.styles.css",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\Assignment2OOP.styles.css",
       "SourceId": "Assignment2OOP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\",
       "BasePath": "/",
       "RelativePath": "Assignment2OOP.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\Assignment2OOP.styles.css"
+      "OriginalItemSpec": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\Assignment2OOP.styles.css"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\Assignment2OOP.bundle.scp.css",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\Assignment2OOP.bundle.scp.css",
       "SourceId": "Assignment2OOP",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\",
       "BasePath": "/",
       "RelativePath": "Assignment2OOP.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\OOP2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\Assignment2OOP.bundle.scp.css"
+      "OriginalItemSpec": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\Assignment2OOP.bundle.scp.css"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\wwwroot\\css\\app.css",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\app.css",
       "SourceId": "Assignment2OOP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "Assignment2OOP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Assignment2OOP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\wwwroot\\favicon.png",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\favicon.png",
       "SourceId": "Assignment2OOP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\OOP2\\Assignment2OOP\\wwwroot\\index.html",
+      "Identity": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
       "SourceId": "Assignment2OOP",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\OOP2\\Assignment2OOP\\wwwroot\\",
+      "ContentRoot": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\",
       "BasePath": "/",
       "RelativePath": "index.html",
       "AssetKind": "All",

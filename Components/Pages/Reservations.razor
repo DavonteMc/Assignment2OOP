@@ -1,4 +1,65 @@
-﻿<h3>Reservations</h3>
+﻿@page "/reservations"
+<h2>Reservation Finder</h2>
+    <div class="form-group">
+        <label for="codeID">Code:</label>
+        <input type="text" class="form-control" id="codeID" aria-describedby="codeID" placeholder="Any"> 
+    </div>
+    <div class="form-group">
+        <label for="airlineID">Airline:</label>
+        <input type="text" class="form-control" id="airlineID" aria-describedby="airlineID" placeholder="Any"> 
+    </div>
+    <div class="form-group">
+        <label for="nameID">Name:</label>
+        <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Any"> 
+    </div>
+    <button type="submit" class="btn btn-primary">Find Reservation</button>
+
+
+<h2>Reservations</h2>
+    <div class="form-group">
+        <label for="reservationID">Flights</label>
+        <select 
+            type="text" class="form-control" id="theID" aria-describedby="reservationID">
+            <option selected disabled>Loading...</option>
+            <option>flight 1</option>
+            <option>flight 2</option>
+        </select>
+    </div>
+
+
+<h2>Reserve</h2>
+    <div class="form-group">
+        <label for="reservationID">Reservation Code:</label>
+    <input type="text" class="form-control" id="reservationID" aria-describedby="reservationID" placeholder="Enter the code">
+    </div>
+    <div class="form-group">
+        <label for="flightCodeID">FLight Code:</label>
+    <input type="text" class="form-control" id="flightCodeID" aria-describedby="flightCodeID" placeholder="Enter the flight">
+</div>
+    <div class="form-group">
+        <label for="airlineID">Airline:</label>
+    <input type="text" class="form-control" id="airlineID" aria-describedby="emailHairlineIDelp" placeholder="Enter the Airline">
+</div>
+    <div class="form-group">
+        <label for="costID">Cost</label>
+    <input disabled type="text" class="form-control" id="costID" aria-describedby="costID" placeholder="The cost display Here">
+</div>
+    <div class="form-group">
+        <label for="nameID">Name</label>
+    <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Your name here">
+</div>
+    <div class="form-group">
+        <label for="citizenshipID">Citizenship:</label>
+    <input type="text" class="form-control" id="theID" aria-describedby="citizenshipID" placeholder="Citizenshipo">
+</div>
+<div>
+    <label>
+        Status:
+    </label>
+    <input disabled id="status" type="text" placeholder="Active"/>
+</div>
+    <button type="submit" class="btn btn-primary">Save</button>
+
 
 @code {
 
