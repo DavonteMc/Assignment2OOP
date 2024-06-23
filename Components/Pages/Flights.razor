@@ -1,19 +1,78 @@
 ﻿@page "/flights"
-<h3>Find a Flight</h3>
 
-<EditForm>
-    <div class="flight">
-        <label for="from">Leaving From</label>
-        <input type="date" class="form-control" id="from" aria-describedby="emailHelp">
+<section id="findFlightSection">
+    @*This id allows us to target using css later in the flights.razor.css file*@
+    <h3>Flight Finder</h3>
+    <EditForm Model="@flightDetails">
+        <div>
+            <label for="leavingFrom">Leaving From</label>
+            <input type="text" id="leaving_from" class="form-control" placeholder="Any" />
+            @*Will also need a @bind-value when doing the backend*@
+        </div>
+        <div>
+            <label for="goingTo">Going To</label>
+            <input type="text" id="going_to" class="form-control" placeholder="Any" />
+        </div>
+        <div>
+            <label for="day">Day</label>
+            <input type="date" id="day" class="form-control" />
+            @*This section, in the example has a placeholder, but it may have to display nothing for now*@
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search Flights</button>
+    </EditForm>
+</section>
+@*Each part of the page should be broken up into sections for styling purposes later*@
+<section id="findFlightSection">
+    <h3>Display Flights</h3>
+    <div>
+        <input class="form-control" placeholder="loading" />
+        @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
     </div>
-    <div class="flight">
-        <label for="from">Leaving From</label>
-        <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
-    </div>
+</section>
+<section id="findFlightSection">
+    <h3>Reserve Flights</h3>
+    <EditForm Model="@flightDetails">
+        <div>
+            <label for="flightCode">Flight Code</label>
+            <input type="text" class="form-control" placeholder="Flight Code" />
+        </div>
+        <div>
+            <label for="airline">Airline</label>
+            <input type="text" class="form-control" placeholder="Airline" />
+        </div>
+        <div>
+            <label for="flightDay">Day</label>
+            <input type="date" class="form-control" placeholder="Day" />
+        </div>
+        <div>
+            <label for="flightTime">Time</label>
+            <input type="time" class="form-control" placeholder="Flight Code" />
+        </div>
+        <div>
+            <label for="flightCost">Cost</label>
+            <input type="number" class="form-control" placeholder="Cost" />
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" placeholder="Name" />
+        </div>
+        <div>
+            <label for="citizenship">Citizenship</label>
+            <input type="text" class="form-control" placeholder="Citizenship" />
+        </div>
+        <button type="submit" class="btn btn-primary">Reserve</button>
+    </EditForm>
+</section>
 
-</EditForm>
-
-This is our page displaying flights.
 @code {
+    private FlightDetails flightDetails = new FlightDetails();
 
+    public class FlightDetails
+    //This class allows us to the use Model="@FlightDetails" for the EditForm tag
+    {
+        public string LeavingFrom { get; set; }
+        public string GoingTo { get; set; }
+        public DateTime Day { get; set; }
+    }
 }

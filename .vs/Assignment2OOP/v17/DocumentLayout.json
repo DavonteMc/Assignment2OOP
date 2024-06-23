@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -21,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -46,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,8 +66,7 @@
               "RelativeToolTip": "wwwroot\\index.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-23T05:43:58.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T05:43:58.521Z"
             },
             {
               "$type": "Document",
@@ -87,18 +78,17 @@
               "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T04:51:20.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-23T04:51:20.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Reservations.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Reservations.razor",
               "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Components\\Pages\\Reservations.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAKAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-19T16:17:48.42Z",
               "EditorCaption": ""
@@ -113,49 +103,24 @@
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T23:46:08.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T23:46:08.196Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Weather.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Weather.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Weather.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Weather.razor",
-              "RelativeToolTip": "Components\\Pages\\Weather.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T23:48:22.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Flights.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Flights.razor",
               "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeToolTip": "Components\\Pages\\Flights.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T16:17:29.02Z"
+              "WhenOpened": "2024-06-19T16:17:29.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Counter.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Counter.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Counter.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Counter.razor",
-              "RelativeToolTip": "Components\\Pages\\Counter.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T16:15:30.996Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
@@ -167,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "app.css",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
