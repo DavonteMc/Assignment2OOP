@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,18 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,19 +66,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "index.html",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
               "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
               "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAwwBEAAAAGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-06-23T05:43:58.521Z"
+              "WhenOpened": "2024-06-23T05:43:58.521Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
@@ -86,19 +87,8 @@
               "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T04:51:20.933Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T23:46:08.196Z"
+              "WhenOpened": "2024-06-23T04:51:20.933Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -108,14 +98,27 @@
               "RelativeDocumentMoniker": "Components\\Pages\\Reservations.razor",
               "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Components\\Pages\\Reservations.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-19T16:17:48.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T23:46:08.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Weather.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Weather.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Weather.razor",
@@ -123,11 +126,12 @@
               "RelativeToolTip": "Components\\Pages\\Weather.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T23:48:22.074Z"
+              "WhenOpened": "2024-06-19T23:48:22.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Flights.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Flights.razor",
@@ -139,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Counter.razor",
               "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Counter.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Counter.razor",
