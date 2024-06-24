@@ -65,7 +65,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Data\" />
       <Folder Include="Resources\Res\" />
     </ItemGroup>
 
