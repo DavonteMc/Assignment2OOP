@@ -1,34 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\",
+  "WorkspaceRootPath": "C:\\C-CPRG-211\\Assignment2OOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\airport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\airport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\airportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\airportmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\flightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\flightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\cprg 211\\repo assignment 2\\assignment2oop\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,31 +62,90 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ReservationManager.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\ReservationManager.cs",
+              "RelativeDocumentMoniker": "Data\\ReservationManager.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\ReservationManager.cs",
+              "RelativeToolTip": "Data\\ReservationManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:56:03.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Reservation.cs",
+              "RelativeDocumentMoniker": "Data\\Reservation.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Reservation.cs",
+              "RelativeToolTip": "Data\\Reservation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:55:50.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AirportManager.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\AirportManager.cs",
+              "RelativeDocumentMoniker": "Data\\AirportManager.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\AirportManager.cs",
+              "RelativeToolTip": "Data\\AirportManager.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:55:38.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Airport.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Airport.cs",
+              "RelativeDocumentMoniker": "Data\\Airport.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Airport.cs",
+              "RelativeToolTip": "Data\\Airport.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:55:23.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FlightManager.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\FlightManager.cs",
+              "RelativeDocumentMoniker": "Data\\FlightManager.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\FlightManager.cs",
+              "RelativeToolTip": "Data\\FlightManager.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:55:10.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Flight.cs",
+              "RelativeDocumentMoniker": "Data\\Flight.cs",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Flight.cs",
+              "RelativeToolTip": "Data\\Flight.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T13:54:59.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "index.html",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\wwwroot\\index.html",
               "RelativeToolTip": "wwwroot\\index.html",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
@@ -70,11 +153,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
               "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -82,24 +165,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Reservations.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Reservations.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Components\\Pages\\Reservations.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T16:17:48.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T16:17:48.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -107,24 +189,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "Flights.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Flights.razor",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Flights.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Flights.razor",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeToolTip": "Components\\Pages\\Flights.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAANAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADEAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T16:17:29.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T16:17:29.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Home.razor",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Components\\Pages\\Home.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -132,11 +213,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "app.css",
-              "DocumentMoniker": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\app.css",
+              "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\wwwroot\\css\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
-              "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\wwwroot\\css\\app.css",
               "RelativeToolTip": "wwwroot\\css\\app.css",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
