@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assignment2OOP.Data
 {
-    internal class Reservation
+    public class Reservation
     {
+        public string Name { get; set; }
+        public string Citizenship { get; set; }
     }
 }
