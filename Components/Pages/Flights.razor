@@ -1,38 +1,76 @@
 ﻿@page "/flights"
+@using Assignment2OOP.Data
 
 <section id="findFlightSection">
     @*This id allows us to target using css later in the flights.razor.css file*@
     <h3>Flight Finder</h3>
-    <EditForm Model="@flightDetails">
+    <form>
         <div>
             <label for="leavingFrom">Leaving From</label>
-            <input type="text" id="leaving_from" class="form-control" placeholder="Any" />
+            <select @onchange="SelectOrigin">
+                <option>Any</option>
+                @foreach(var item in AirportManager.airports)
+                {
+                    <option value="@item.Code">@item.Code - @item.Name</option>
+                }
+            </select>
+            @* <input type="text" id="leaving_from" class="form-control" placeholder="Any" /> *@
             @*Will also need a @bind-value when doing the backend*@
         </div>
         <div>
             <label for="goingTo">Going To</label>
-            <input type="text" id="going_to" class="form-control" placeholder="Any" />
+            <select @onchange="SelectDestination">
+                <option>Any</option>
+                @foreach (var item in AirportManager.airports)
+                {
+                    <option value="@item.Code">@item.Code - @item.Name</option>
+                }
+            </select>
+@*             <label for="goingTo">Going To</label>
+            <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
         </div>
         <div>
-            <label for="day">Day</label>
-            <input type="date" id="day" class="form-control" />
+            <label for="Day">Day</label>
+            <select @onchange="SelectDay">
+                <option>Any</option>
+                @foreach (string item in days)
+                {
+                    //TODO review below line of code**
+                    <option value ="@item">@item</option>
+                }
+            </select>
+           @*  <label for="day">Day</label>
+            <input type="date" id="day" class="form-control" /> *@
             @*This section, in the example has a placeholder, but it may have to display nothing for now*@
         </div>
-
-        <button type="submit" class="btn btn-primary">Search Flights</button>
-    </EditForm>
+    </form>
+    <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
 </section>
-@*Each part of the page should be broken up into sections for styling purposes later*@
+
 <section id="findFlightSection">
     <h3>Display Flights</h3>
     <div>
-        <input class="form-control" placeholder="loading" />
+        <select>
+            @if (displayFlights.Count == 0)
+            {
+                <option disabled>loading...</option>
+            }
+            else
+            {
+                @foreach (var item in displayFlights)
+                {
+                    <option value="@item.Code">@item.Code @item.Name @item.Origin @item.Destination @item.Day @item.Time @item.NumOfSeats @item.Cost</option>
+                }
+            }
+
+        </select>
+       @*  <input class="form-control" placeholder="loading" /> *@
         @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
     </div>
 </section>
 <section id="findFlightSection">
     <h3>Reserve Flights</h3>
-    <EditForm Model="@flightDetails">
+    <EditForm Model=@flightDetails>
         <div>
             <label for="flightCode">Flight Code</label>
             <input type="text" class="form-control" placeholder="Flight Code" />
@@ -68,9 +106,53 @@
 @code {
     private FlightDetails flightDetails = new FlightDetails();
 
+    List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+
+    // new list > hold the items for flights that meet the Condition A && B && C = new list (Newlist is going to be foreach() inside to display)  
+    string selectedOrigin = "";
+    string selectedDestination = "";
+    string selectedDay = "";
+
+    string selectedFlight = "";
+
+
+    void SelectOrigin(ChangeEventArgs e)
+    {
+        selectedOrigin = e.Value.ToString();
+    }
+
+    void SelectDestination(ChangeEventArgs e)
+    {
+        selectedDestination = e.Value.ToString();
+    }
+    void SelectDay(ChangeEventArgs e)
+    {
+        selectedDay = e.Value.ToString();
+    }
+
+
+    FlightManager flightManager = new FlightManager();
+
+    List<Flight> flights = FlightManager.GetFlights(); //actual list
+    List<Flight> displayFlights = new List<Flight>(); // display list
+
+    private void FlightSearch()
+    {
+        displayFlights = flights.Where(f => f.Origin.ToUpper().Contains(selectedOrigin.ToUpper()) && f.Destination.ToUpper().Contains(selectedDestination.ToUpper()) && f.Day.ToUpper().Contains(selectedDay.ToUpper())).ToList();
+    }
+
+    void SelectedFlight(ChangeEventArgs e)
+    {
+        //Need to have logic here to grab se
+    }
+    AirportManager airportManager = new AirportManager();
     public class FlightDetails
     //This class allows us to the use Model="@FlightDetails" for the EditForm tag
     {
+        //do a loop with Origin Destination and Day in order to display the information from the list.
+
+        
         public string LeavingFrom { get; set; }
         public string GoingTo { get; set; }
         public DateTime Day { get; set; }
