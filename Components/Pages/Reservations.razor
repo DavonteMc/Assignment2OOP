@@ -1,66 +1,164 @@
 ﻿@page "/reservations"
-<h2>Reservation Finder</h2>
-    <div class="form-group">
-        <label for="codeID">Code:</label>
-        <input type="text" class="form-control" id="codeID" aria-describedby="codeID" placeholder="Any"> 
-    </div>
-    <div class="form-group">
-        <label for="airlineID">Airline:</label>
-        <input type="text" class="form-control" id="airlineID" aria-describedby="airlineID" placeholder="Any"> 
-    </div>
-    <div class="form-group">
-        <label for="nameID">Name:</label>
-        <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Any"> 
-    </div>
-    <button type="submit" class="btn btn-primary">Find Reservation</button>
+@using Assignment2OOP.Data
 
+<section id="findReservations">
+    <h3>Reservation Finder</h3>
+    <form>
+        <div>
+            <label for="resCode">Code:</label>
+            <select @onchange="SelectCode">
+                <option disabled selected>Any</option>
+                @foreach (Reservation res in reservations)
+                {
+                    <option value="@res.Code">@res.Code</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="resAirline">Airline:</label>
+            <select @onchange="SelectAirline">
+                <option disabled selected>Any</option>
+                @foreach (Reservation res in reservations)
+                {
+                    <option value="@res.ResFlight.Airline">@res.ResFlight.Airline</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="resClientName">Name:</label>
+            <select @onchange="SelectName">
+                <option disabled selected>Any</option>
+                @foreach (Reservation res in reservations)
+                {
+                    <option value="@res.Name">@res.Name</option>
+                }
+            </select>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-primary" @onclick="FindReservations">Find Reservations</button>
+</section>
 
-<h2>Reservations</h2>
-    <div class="form-group">
-        <label for="reservationID">Flights</label>
-        <select 
-            type="text" class="form-control" id="theID" aria-describedby="reservationID">
-            <option selected disabled>Loading...</option>
-            <option>flight 1</option>
-            <option>flight 2</option>
+<section id="displayReservations">
+    <h3>Reservations</h3>
+    <div>
+        <select @onchange="SelectReservation">
+            <option disabled selected>Loading...</option>
+            @if (displayReservations.Count == 0)
+            {
+                <option disabled >Loading...</option>
+            }
+            else
+            {
+                @foreach (Reservation res in displayReservations)
+                {
+                    <option value="@res.Code">@res.Code @res.ResFlight.Code @res.ResFlight.Airline @res.ResFlight.Cost @res.Name @res.Citizenship @res.Status</option>
+                }
+            }
         </select>
     </div>
-
-
-<h2>Reserve</h2>
-    <div class="form-group">
-        <label for="reservationID">Reservation Code:</label>
-    <input type="text" class="form-control" id="reservationID" aria-describedby="reservationID" placeholder="Enter the code">
-    </div>
-    <div class="form-group">
-        <label for="flightCodeID">FLight Code:</label>
-    <input type="text" class="form-control" id="flightCodeID" aria-describedby="flightCodeID" placeholder="Enter the flight">
-</div>
-    <div class="form-group">
-        <label for="airlineID">Airline:</label>
-    <input type="text" class="form-control" id="airlineID" aria-describedby="emailHairlineIDelp" placeholder="Enter the Airline">
-</div>
-    <div class="form-group">
-        <label for="costID">Cost</label>
-    <input disabled type="text" class="form-control" id="costID" aria-describedby="costID" placeholder="The cost display Here">
-</div>
-    <div class="form-group">
-        <label for="nameID">Name</label>
-    <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Your name here">
-</div>
-    <div class="form-group">
-        <label for="citizenshipID">Citizenship:</label>
-    <input type="text" class="form-control" id="theID" aria-describedby="citizenshipID" placeholder="Citizenshipo">
-</div>
-<div>
-    <label>
-        Status:
-    </label>
-    <input disabled id="status" type="text" placeholder="Active"/>
-</div>
-    <button type="submit" class="btn btn-primary">Save</button>
+</section>
+<section id="findFlightSection">
+    <h3>Reserve</h3>>
+    <form>
+        <div>
+            <label for="reservationCode">Reservation Code</label>
+            <input type="text" id="reservationCode" class="form-control" placeholder="@resCode" @bind="@resCode" disabled />
+        </div>
+        <div>
+            <label for="resFlightCode">Flight Code</label>
+            <input type="text" id="resFlightCode" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
+        </div>
+        <div>
+            <label for="resFlightAirline">Airline</label>
+            <input type="text" id="resFlightAirline" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
+        </div>
+        <div>
+            <label for="resFlightCost">Cost</label>
+            <input type="text" id="resFlightCost" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
+        </div>
+        <div>
+            <label for="resClientName">Name</label>
+            <input type="number" class="form-control" placeholder="Name" @bind="@clientName"  />
+        </div>
+        <div>
+            <label for="resClientCitizenship">Citizenship</label>
+            <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
+        </div>
+        <div>
+            <label for="resStatus">Status</label>
+            <select id="resStatus" @bind="@status">
+                <option disabled>Any</option>
+                <option value="active" selected>Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-primary" >Save</button>
+</section>
 
 
 @code {
+    FlightManager flightManager = new FlightManager();
+    List<Flight> flights = FlightManager.GetFlights(); //actual list
 
+    List<Reservation> displayReservations = new List<Reservation>(); // display list
+
+    ReservationManager reservationManager = new ReservationManager();
+    List<Reservation> reservations = ReservationManager.GetReservations();
+
+    string selectedCode = "";
+    string selectedAirline = "";
+    string selectedName = "";
+
+    string selectedReservationCode;
+    Reservation selectedReservation;
+
+    string resCode = "Reservation";
+    string flightCode = "Flight";
+    string flightAirline = "Airline";
+    double flightCost = 0;
+    string clientName;
+    string clientCitizenship;
+    string status;
+
+
+    string reservationCode;
+
+    void SelectCode(ChangeEventArgs e)
+    {
+        selectedCode = e.Value.ToString();
+    }
+
+    void SelectAirline(ChangeEventArgs e)
+    {
+        selectedAirline = e.Value.ToString();
+    }
+    void SelectName(ChangeEventArgs e)
+    {
+        selectedName = e.Value.ToString();
+    }
+
+    void FindReservations()
+    {
+        displayReservations.Clear();
+        displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+    }
+
+    void SelectReservation(ChangeEventArgs e)
+    {
+        selectedReservationCode = e.Value.ToString();
+        if (selectedReservationCode != null)
+        {
+            Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+            resCode = selectedReservation.Code;
+            flightCode = selectedReservation.ResFlight.Code;
+            flightAirline = selectedReservation.ResFlight.Airline;
+            flightCost = selectedReservation.ResFlight.Cost;
+            clientName = selectedReservation.Name;
+            clientCitizenship = selectedReservation.Citizenship;
+            status = selectedReservation.Status;
+        }
+    }
+
+    
 }
