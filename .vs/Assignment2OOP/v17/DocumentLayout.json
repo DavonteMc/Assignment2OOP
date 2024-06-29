@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\reservations.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -15,24 +19,20 @@
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\flightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\flightmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\data\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:data\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81C62188-66FC-492C-B893-07188859AF26}|Assignment2OOP.csproj|c:\\c-cprg-211\\assignment2oop\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -100,7 +100,7 @@
               "RelativeDocumentMoniker": "Components\\Pages\\Reservations.razor",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Components\\Pages\\Reservations.razor",
-              "ViewState": "AQIAACsAAAAAAAAAAAAAADwAAAAVAAAA",
+              "ViewState": "AQIAAKMAAAAAAAAAAAD4v8EAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-19T16:17:48.42Z",
               "IsPinned": true,
@@ -108,32 +108,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Flights.razor",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Flights.razor",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Pages\\Flights.razor",
               "RelativeToolTip": "Components\\Pages\\Flights.razor",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADgAAAArAAAA",
+              "ViewState": "AQIAALwAAAAAAAAAAAAiwNEAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-19T16:17:29.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Reservation.cs",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Reservation.cs",
               "RelativeDocumentMoniker": "Data\\Reservation.cs",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Reservation.cs",
               "RelativeToolTip": "Data\\Reservation.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAApwCQAAAAZAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAWwDgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:55:50.627Z"
+              "WhenOpened": "2024-06-24T13:55:50.627Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
@@ -141,11 +142,12 @@
               "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-23T04:51:20.933Z"
+              "WhenOpened": "2024-06-23T04:51:20.933Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
@@ -153,43 +155,47 @@
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T23:46:08.196Z"
+              "WhenOpened": "2024-06-19T23:46:08.196Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "ReservationManager.cs",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\ReservationManager.cs",
               "RelativeDocumentMoniker": "Data\\ReservationManager.cs",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\ReservationManager.cs",
               "RelativeToolTip": "Data\\ReservationManager.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACsAAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwCAAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:56:03.973Z"
+              "WhenOpened": "2024-06-24T13:56:03.973Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "FlightManager.cs",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\FlightManager.cs",
               "RelativeDocumentMoniker": "Data\\FlightManager.cs",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\FlightManager.cs",
               "RelativeToolTip": "Data\\FlightManager.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAkAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:55:10.663Z"
+              "WhenOpened": "2024-06-24T13:55:10.663Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Flight.cs",
               "DocumentMoniker": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Flight.cs",
               "RelativeDocumentMoniker": "Data\\Flight.cs",
               "ToolTip": "C:\\C-CPRG-211\\Assignment2OOP\\Data\\Flight.cs",
               "RelativeToolTip": "Data\\Flight.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwCEAAAAAAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAA1wCEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:54:59.411Z"
+              "WhenOpened": "2024-06-24T13:54:59.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

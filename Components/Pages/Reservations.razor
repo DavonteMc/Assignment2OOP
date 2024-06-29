@@ -7,7 +7,8 @@
         <div>
             <label for="resCode">Code:</label>
             <select @onchange="SelectCode">
-                <option disabled selected>Any</option>
+                <option disabled>Code</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.Code">@res.Code</option>
@@ -17,7 +18,8 @@
         <div>
             <label for="resAirline">Airline:</label>
             <select @onchange="SelectAirline">
-                <option disabled selected>Any</option>
+                <option disabled>Airline</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.ResFlight.Airline">@res.ResFlight.Airline</option>
@@ -27,7 +29,8 @@
         <div>
             <label for="resClientName">Name:</label>
             <select @onchange="SelectName">
-                <option disabled selected>Any</option>
+                <option disabled>Name</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.Name">@res.Name</option>
@@ -45,7 +48,7 @@
             <option disabled selected>Loading...</option>
             @if (displayReservations.Count == 0)
             {
-                <option disabled >Loading...</option>
+                <option disabled>Loading...</option>
             }
             else
             {
@@ -93,7 +96,7 @@
             </select>
         </div>
     </form>
-    <button type="submit" class="btn btn-primary" >Save</button>
+    <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
 </section>
 
 
@@ -141,7 +144,27 @@
     void FindReservations()
     {
         displayReservations.Clear();
-        displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Choices Selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+        else 
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
+        if (displayReservations.Count() == 1)
+        {
+            Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+            resCode = selectedReservation.Code;
+            flightCode = selectedReservation.ResFlight.Code;
+            flightAirline = selectedReservation.ResFlight.Airline;
+            flightCost = selectedReservation.ResFlight.Cost;
+            clientName = selectedReservation.Name;
+            clientCitizenship = selectedReservation.Citizenship;
+            status = selectedReservation.Status;
+        }
     }
 
     void SelectReservation(ChangeEventArgs e)
@@ -159,6 +182,19 @@
             status = selectedReservation.Status;
         }
     }
+
+    void SaveReservation()
+    {
+        if (resCode != "Reservation")
+        {
+            Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(resCode)).FirstOrDefault();
+            savedReservation.Name = clientName;
+            savedReservation.Citizenship = clientCitizenship;
+            savedReservation.Status = status;
+            ReservationManager.Persist();
+        }
+    }
+
 
     
 }

@@ -41,7 +41,6 @@ namespace Assignment2OOP.Data
             }
         }
 
-
         public Reservation() {}
 
         public Reservation(string reservationCode, Flight flight, string clientName, string clientCitizenship, string status)
@@ -51,6 +50,11 @@ namespace Assignment2OOP.Data
             this.Name = clientName;
             this.Citizenship = clientCitizenship;
             this.Status = status;
+        }
+
+        public string FormatForFile()
+        {
+            return $"{Code},{ResFlight.Code},{Name},{Citizenship},{Status}";
         }
     }
 }
