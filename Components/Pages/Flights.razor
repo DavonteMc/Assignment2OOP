@@ -7,39 +7,44 @@
     <form>
         <div>
             <label for="leavingFrom">Leaving From:</label>
-            <select id="leaving_from" @onchange="SelectOrigin">
-                <option selected>Any</option>
-                @foreach(var item in airports)
+            <select @onchange="SelectOrigin">
+                <option disabled selected>Departure</option>
+                <option value = null >Any </option>
+                @foreach (var item in AirportManager.airports)
                 {
                     <option value="@item.Code">@item.Code - @item.Name</option>
                 }
+
             </select>
             @* <input type="text" id="leaving_from" class="form-control" placeholder="Any" /> *@
             @*Will also need a @bind-value when doing the backend*@
         </div>
         <div>
             <label for="goingTo">Going To:</label>
-            <select id="going_to" @onchange="SelectDestination">
-                <option selected>Any</option>
-                @foreach (var item in airports)
+            <select @onchange="SelectDestination">
+                <option disabled selected>Arrival</option>
+                <option value = null> Any </option>
+                @foreach (var item in AirportManager.airports)
                 {
                     <option value="@item.Code">@item.Code - @item.Name</option>
                 }
+
             </select>
-@*             <label for="goingTo">Going To</label>
+            @*             <label for="goingTo">Going To</label>
             <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
         </div>
         <div>
             <label for="Day">Day:</label>
-            <select id="day" @onchange="SelectDay">
-                <option selected>Any</option>
-                @foreach (string item in days)
+            <select @onchange="SelectDay">
+                <option disabled selected>Choose a day</option>
+                <option value="Any">Any</option>
+                @foreach (string day in days)
                 {
-                    //TODO review below line of code**
-                    <option value ="@item">@item</option>
+                    <option value="@day">@day</option>
                 }
+
             </select>
-           @*  <label for="day">Day</label>
+            @*  <label for="day">Day</label>
             <input type="date" id="day" class="form-control" /> *@
             @*This section, in the example has a placeholder, but it may have to display nothing for now*@
         </div>
@@ -54,7 +59,7 @@
             <option disabled selected>Loading...</option>
             @if (displayFlights.Count == 0)
             {
-                <option disabled selected>Loading...</option>
+                <option disabled selected>None on this day</option>
             }
             else
             {
@@ -152,8 +157,26 @@
 
     void FlightSearch()
     {
-        displayFlights.Clear();
-        displayFlights = flights.Where(f => f.Origin.ToUpper().Contains(selectedOrigin.ToUpper()) && f.Destination.ToUpper().Contains(selectedDestination.ToUpper()) && f.Day.ToUpper().Contains(selectedDay.ToUpper())).ToList();
+        if (selectedDay == "Any")
+        {
+            displayFlights = flights.Where(f => f.Origin.ToUpper().Contains(selectedOrigin.ToUpper()) && f.Destination.ToUpper().Contains(selectedDestination.ToUpper())).ToList();
+        }
+
+        else if (selectedOrigin == null)
+        {
+            displayFlights = flights.Where(f => f.Destination.ToUpper().Contains(selectedDestination.ToUpper()) && f.Day.ToUpper().Contains(selectedDay.ToUpper())).ToList();
+        }
+
+        else if (selectedDestination == null)
+        {
+            displayFlights = flights.Where(f => f.Origin.ToUpper().Contains(selectedOrigin.ToUpper()) && f.Day.ToUpper().Contains(selectedDay.ToUpper())).ToList();
+        }
+
+        else
+        {
+            displayFlights = flights.Where(f => f.Origin.ToUpper().Contains(selectedOrigin.ToUpper()) && f.Destination.ToUpper().Contains(selectedDestination.ToUpper()) && f.Day.ToUpper().Contains(selectedDay.ToUpper())).ToList();
+        }
+
     }
 
     void SelectFlight(ChangeEventArgs e)
