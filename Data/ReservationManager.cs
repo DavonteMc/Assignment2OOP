@@ -68,13 +68,14 @@ namespace Assignment2OOP.Data
 
         public static void Persist()
         {
+            string filePath = "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Resources\\Res\\reservations.csv"; //Josh's absolute path
             List<string> saveReservationsToFile = new List<string>();
             foreach (Reservation res in reservations)
             {
-                string filePath = "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv";
+                //string filePath = "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv"; //Davonte's rel filepath
                 saveReservationsToFile.Add(res.FormatForFile());
-                File.WriteAllLines(filePath, saveReservationsToFile);
             }
+            File.WriteAllLines(filePath, saveReservationsToFile);
         }
 
     }

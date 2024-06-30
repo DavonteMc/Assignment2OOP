@@ -9,6 +9,9 @@
 //------------------------------------------------------------------------------
 
 
+using Assignment2OOP.Components.Pages;
+using Assignment2OOP.Data;
+
 namespace Assignment2OOP.WinUI
 {
 #if !DISABLE_XAML_GENERATED_MAIN
@@ -33,6 +36,13 @@ namespace Assignment2OOP.WinUI
                 global::System.Threading.SynchronizationContext.SetSynchronizationContext(context);
                 new App();
             });
+
+
+            //trying the Exceptions for null Name, Flight, Citizenship
+
+            var Flights = new Flights();
+            Flights.CreateReservation();
+
         }
     }
 #endif

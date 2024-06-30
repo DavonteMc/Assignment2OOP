@@ -1,5 +1,7 @@
 ﻿@page "/flights"
 @using Assignment2OOP.Data
+@using Microsoft.AspNetCore.Components.Web
+
 
 <section id="findFlightSection">
     @*This id allows us to target using css later in the flights.razor.css file*@
@@ -92,22 +94,38 @@
         </div>
         <div>
             <label for="flightCost">Cost</label>
-            <input type="number" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled/>
+            <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled/>
         </div>
         <div>
             <label for="name">Name</label>
-            <input type="text" class="form-control" placeholder="Name" @bind="@clientName" />
+            <input type="text" class="form-control" placeholder="Name" @bind="@clientName"/>
         </div>
         <div>
             <label for="citizenship">Citizenship</label>
-            <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
+            <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship"/>
         </div>
     </form>
+
+    
     <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
+    @if (string.IsNullOrEmpty(clientName))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (selectedFlightCode == null)
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (string.IsNullOrEmpty(clientCitizenship))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+
     <p>Reservation Code: @reservationCode</p>
 </section>
 
 @code {
+
     AirportManager airportManager = new AirportManager();
     List<Airport> airports = AirportManager.GetAirports();
     List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -216,10 +234,44 @@
         }
     }
 
-    void CreateReservation()
+    //ArgumentNullException here App.g.i.cs has the SVM
+
+    string errorMessage;
+    public async void CreateReservation()
     {
-        Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
-        reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+        try
+        {
+            Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
+            if (selectedFlight == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrEmpty(clientName))
+            {
+                throw new InvalidNameException();
+
+            }
+
+            if (string.IsNullOrEmpty(clientCitizenship))
+            {
+                throw new InvalidCitizenshipException();
+            }
+            reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+            errorMessage = string.Empty; 
+        }
+        catch (ArgumentNullException f)
+        {
+            errorMessage = "No Flight selected. Please select one!";
+        }
+        catch (InvalidNameException n)
+        {
+            errorMessage = "No Name entered. Please enter a name.";
+        }
+        catch (InvalidCitizenshipException c)
+        {
+            errorMessage = "No Citizenship entered. Enter Citizenship.";
+        }
     }
 
 }

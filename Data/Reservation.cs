@@ -15,7 +15,8 @@ namespace Assignment2OOP.Data
         private string status;
 
         public string Code { get; set; }
-        public Flight ResFlight { get; set; }
+        public Flight ResFlight { get; set; } //apparently this is retunring null so not letting me into Reservation razor component anymore
+
         public string Name { get; set; }
         public string Citizenship { get; set; }
 
