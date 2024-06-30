@@ -1,5 +1,7 @@
 ﻿@page "/flights"
 @using Assignment2OOP.Data
+@using Microsoft.AspNetCore.Components.Web
+
 
 <section id="findFlightSection">
     @*This id allows us to target using css later in the flights.razor.css file*@
@@ -21,14 +23,14 @@
         <div>
             <label for="goingTo">Going To:</label>
             <select id="going_to" @onchange="SelectDestination">
-                <option disabled >Arrival</option>
+                <option disabled>Arrival</option>
                 <option selected>Any</option>
                 @foreach (Airport air in airports)
                 {
                     <option value="@air.Code">@air.Code - @air.Name</option>
                 }
             </select>
-@*             <label for="goingTo">Going To</label>
+            @*             <label for="goingTo">Going To</label>
             <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
         </div>
         <div>
@@ -39,10 +41,10 @@
                 @foreach (string item in days)
                 {
                     //TODO review below line of code**
-                    <option value ="@item">@item</option>
+                    <option value="@item">@item</option>
                 }
             </select>
-           @*  <label for="day">Day</label>
+            @*  <label for="day">Day</label>
             <input type="date" id="day" class="form-control" /> *@
             @*This section, in the example has a placeholder, but it may have to display nothing for now*@
         </div>
@@ -53,7 +55,7 @@
 <section id="findFlightSection">
     <h3>Display Flights</h3>
     <div>
-        <select @onchange="SelectFlight"> 
+        <select @onchange="SelectFlight">
             <option disabled selected>Loading...</option>
             @if (displayFlights.Count == 0)
             {
@@ -67,7 +69,7 @@
                 }
             }
         </select>
-       @*  <input class="form-control" placeholder="loading" /> *@
+        @*  <input class="form-control" placeholder="loading" /> *@
         @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
     </div>
 </section>
@@ -88,11 +90,11 @@
         </div>
         <div>
             <label for="flightTime">Time</label>
-            <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled/>
+            <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled />
         </div>
         <div>
             <label for="flightCost">Cost</label>
-            <input type="number" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled/>
+            <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
         </div>
         <div>
             <label for="name">Name</label>
@@ -103,11 +105,27 @@
             <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
         </div>
     </form>
+
+
     <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
+    @if (string.IsNullOrEmpty(clientName))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (selectedFlightCode == null)
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (string.IsNullOrEmpty(clientCitizenship))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+
     <p>Reservation Code: @reservationCode</p>
 </section>
 
 @code {
+
     AirportManager airportManager = new AirportManager();
     List<Airport> airports = AirportManager.GetAirports();
     List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -123,7 +141,7 @@
 
 
 
-    // new list > hold the items for flights that meet the Condition A && B && C = new list (Newlist is going to be foreach() inside to display)  
+    // new list > hold the items for flights that meet the Condition A && B && C = new list (Newlist is going to be foreach() inside to display)
     string selectedOrigin = "";
     string selectedDestination = "";
     string selectedDay = "";
@@ -216,10 +234,43 @@
         }
     }
 
-    void CreateReservation()
+    //ArgumentNullException here App.g.i.cs has the SVM
+    string errorMessage;
+    public async void CreateReservation()
     {
-        Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
-        reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+        try
+        {
+            Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
+            if (selectedFlight == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrEmpty(clientName))
+            {
+                throw new InvalidNameException();
+
+            }
+
+            if (string.IsNullOrEmpty(clientCitizenship))
+            {
+                throw new InvalidCitizenshipException();
+            }
+            reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+            errorMessage = string.Empty;
+        }
+        catch (ArgumentNullException f)
+        {
+            errorMessage = "No Flight selected. Please select one!";
+        }
+        catch (InvalidNameException n)
+        {
+            errorMessage = "No Name entered. Please enter a name.";
+        }
+        catch (InvalidCitizenshipException c)
+        {
+            errorMessage = "No Citizenship entered. Enter Citizenship.";
+        }
     }
 
 }
