@@ -109,6 +109,7 @@
     ReservationManager reservationManager = new ReservationManager();
     List<Reservation> reservations = ReservationManager.GetReservations();
 
+
     string selectedCode = "";
     string selectedAirline = "";
     string selectedName = "";
@@ -143,6 +144,10 @@
 
     void FindReservations()
     {
+
+        //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
+        //Maybe add airline to reservations.csv to satisfy this method?
+
         displayReservations.Clear();
         if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Any Selected
         {
@@ -217,19 +222,29 @@
             clientCitizenship = selectedReservation.Citizenship;
             status = selectedReservation.Status;
         }
+        //Trying to get the existing Reservation's to populate. The else function doesn't do anything atm.
+        else
+        {
+            reservationManager.populateExistingReservationList();
+        }
     }
 
-    void SaveReservation()
-    {
-        if (resCode != "Reservation")
+    void SaveReservation() //Trying to figure out how to filter out already added reservations
+    {        
+        Reservation savedReservation = reservations.FirstOrDefault(r => r.Code.ToUpper() == resCode.ToUpper());
+        if (savedReservation != null)
         {
-            Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(resCode)).FirstOrDefault();
             savedReservation.Name = clientName;
             savedReservation.Citizenship = clientCitizenship;
             savedReservation.Status = status;
-            ReservationManager.Persist();
+            ReservationManager.Persist(savedReservation.Code);
+        }
+        else
+        {
+            Console.WriteLine("Reservation is already saved!");
         }
     }
+
 
 
     

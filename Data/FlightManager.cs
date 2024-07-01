@@ -27,6 +27,14 @@ namespace Assignment2OOP.Data
             }
         }
 
-        public static List<Flight> GetFlights() { return flights; }
+        public static List<Flight> GetFlights() 
+        { 
+            return flights; 
+        }
+
+        public static Flight getFlightCode(string code)
+        {
+            return flights.FirstOrDefault(p => p.Code == code);
+        }
     }
 }
