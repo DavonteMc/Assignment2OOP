@@ -113,7 +113,7 @@
     string selectedAirline = "";
     string selectedName = "";
 
-    string selectedReservationCode;
+    string selectedReservationCode = "";
     Reservation selectedReservation;
 
     string resCode = "Reservation";
@@ -144,19 +144,44 @@
     void FindReservations()
     {
         displayReservations.Clear();
-        if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Choices Selected
+        if ((selectedCode == "Any") && (selectedAirline == "Any") && (selectedName == "Any"))  // All Choices Selected
         {
             displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
         }
-        else 
+        else if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any")) // All Chosen
         {
-            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+        else if ((selectedCode != "Any") && (selectedName != "Any")) // Code and Name
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+        else if ((selectedAirline != "Any") && (selectedName != "Any")) // Airline and Name
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+        else if ((selectedCode != "Any") && (selectedAirline != "Any")) //Code and Airline
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+        else if (selectedCode != "Any") // Code
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper())).ToList();
+        }
+        else if (selectedAirline != "Any") // Airline
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+        else if (selectedName != "Any") // Name
+        {
+            displayReservations = reservations.Where(r => r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
         }
 
         // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
         if (displayReservations.Count() == 1)
         {
-            Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+
+            Reservation selectedReservation = reservations[0];//.Where(r => r.Code.ToUpper().Contains(flightCode)).FirstOrDefault();
             resCode = selectedReservation.Code;
             flightCode = selectedReservation.ResFlight.Code;
             flightAirline = selectedReservation.ResFlight.Airline;
