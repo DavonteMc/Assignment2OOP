@@ -4,7 +4,7 @@
 <section id="findFlightSection">
     @*This id allows us to target using css later in the flights.razor.css file*@
     <h3>Flight Finder</h3>
-    <form>
+    <form class="search_filter">
         <div>
             <label for="leavingFrom">Leaving From:</label>
             <select id="leaving_from" @onchange="SelectOrigin">
@@ -47,7 +47,7 @@
             @*This section, in the example has a placeholder, but it may have to display nothing for now*@
         </div>
     </form>
-    <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
+    <button type="submit" class="flightbtn btn btn-primary" @onclick="FlightSearch">Search Flights</button>
 </section>
 
 <section id="findFlightSection">
@@ -105,6 +105,12 @@
     </form>
     <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
     <p>Reservation Code: @reservationCode</p>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class"alert" role="alert">
+            <p>@errorMessage</p>
+        </div>
+    }
 </section>
 
 @code {
@@ -138,6 +144,7 @@
     string clientName;
     string clientCitizenship;
     string reservationCode;
+    string errorMessage;
 
     void SelectOrigin(ChangeEventArgs e)
     {
@@ -216,10 +223,49 @@
         }
     }
 
-    void CreateReservation()
+    void CreateReservation() // Exception For flight.NumOfSeats < 0, flight = null, clientName = null, clientCitizenship = null
     {
-        Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
-        reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+        try
+        {
+            Flight selectedFlight = flights.Where(f => f.Code.ToUpper().Contains(selectedFlightCode)).FirstOrDefault();
+            if (selectedFlight == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (string.IsNullOrEmpty(clientName))
+            {
+                throw new InvalidNameException();
+
+            }
+
+            if (string.IsNullOrEmpty(clientCitizenship))
+            {
+                throw new InvalidCitizenshipException();
+            }
+
+            reservationCode = ReservationManager.MakeReservation(selectedFlight, clientName, clientCitizenship);
+        }
+        catch (ArgumentNullException f)
+        {
+            errorMessage = "No Flight selected. Please select one!";
+        }
+        catch (InvalidNameException n)
+        {
+            errorMessage = "No Name entered. Please enter a name.";
+        }
+        catch (InvalidCitizenshipException c)
+        {
+            errorMessage = "No Citizenship entered. Enter Citizenship.";
+        }
+        catch (InvalidOperationException o)
+        {
+            errorMessage = "No available seats on current flight.";
+        }
+        catch (ReservationAlreadyExisitsException r)
+        {
+            errorMessage = "Reservation already exists.";
+        }
     }
 
 }

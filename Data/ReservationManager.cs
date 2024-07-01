@@ -22,15 +22,20 @@ namespace Assignment2OOP.Data
         {
             if (File.Exists(filePath))
             {
-                foreach (string line in File.ReadAllLines(filePath))
+                string fileLines = File.ReadAllText(filePath);
+                if (string.IsNullOrEmpty(fileLines))
                 {
-                    string[] parts = line.Split(",");
-                    Reservation reservation = new Reservation();
-                    reservations.Add(reservation);
+                    foreach (string line in File.ReadAllLines(filePath))
+                    {
+                        string[] parts = line.Split(",");
+                        Flight flight = FlightManager.GetFlights().Where(f => f.Code == parts[1]).FirstOrDefault();
+                        Reservation reservation = new Reservation(parts[0], flight, parts[2], parts[3], parts[4]);
+                        reservations.Add(reservation);
+                    }
                 }
             }
         }
-        public static string AddReservation(Flight flight, string clientName, string clientCitizenship) 
+        public static string MakeReservation(Flight flight, string clientName, string clientCitizenship) 
         {
             string reservationCode;
 
@@ -38,13 +43,27 @@ namespace Assignment2OOP.Data
             {
                 reservationCode = GenerateResCode();
             }
-            while (reservationCodeList.Contains(reservationCode) == true);
+            while (reservationCodeList.Contains(reservationCode));
             reservationCodeList.Add(reservationCode);
-
-            flight.NumOfSeats -= 1;
             string status = "Active";
-            Reservation reservation = new Reservation(reservationCode, flight, clientName, clientCitizenship, status);
-            reservations.Add(reservation);
+            if (flight.NumOfSeats <= 0)
+            {
+                throw new InvalidOperationException("No seats available.");
+            }
+            else
+            {
+                Reservation reservation = new Reservation(reservationCode, flight, clientName, clientCitizenship, status);
+                if (reservations.Contains(reservation) == false)
+                {
+                    reservations.Add(reservation);
+                }
+                else
+                {
+                    throw new ReservationAlreadyExisitsException();
+                }
+
+            }
+            Persist();
             return reservationCode;
         }
 
@@ -71,10 +90,11 @@ namespace Assignment2OOP.Data
             List<string> saveReservationsToFile = new List<string>();
             foreach (Reservation res in reservations)
             {
-                string filePath = "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv";
                 saveReservationsToFile.Add(res.FormatForFile());
-                File.WriteAllLines(filePath, saveReservationsToFile);
             }
+            string filePath = "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv";
+
+            File.WriteAllLines(filePath, saveReservationsToFile);
         }
 
     }

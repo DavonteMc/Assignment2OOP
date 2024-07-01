@@ -61,7 +61,7 @@
     </div>
 </section>
 <section id="findFlightSection">
-    <h3>Reserve</h3>>
+    <h3>Reserve</h3>
     <form>
         <div>
             <label for="reservationCode">Reservation Code</label>
@@ -81,7 +81,7 @@
         </div>
         <div>
             <label for="resClientName">Name</label>
-            <input type="number" class="form-control" placeholder="Name" @bind="@clientName"  />
+            <input type="text" class="form-control" placeholder="Name" @bind="@clientName"  />
         </div>
         <div>
             <label for="resClientCitizenship">Citizenship</label>
@@ -90,13 +90,18 @@
         <div>
             <label for="resStatus">Status</label>
             <select id="resStatus" @bind="@status">
-                <option disabled>Any</option>
                 <option value="active" selected>Active</option>
                 <option value="inactive">Inactive</option>
             </select>
         </div>
     </form>
     <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class"alert" role="alert">
+            <p>@errorMessage</p>
+        </div>
+    }
 </section>
 
 
@@ -114,7 +119,6 @@
     string selectedName = "";
 
     string selectedReservationCode;
-    Reservation selectedReservation;
 
     string resCode = "Reservation";
     string flightCode = "Flight";
@@ -123,6 +127,7 @@
     string clientName;
     string clientCitizenship;
     string status;
+    string errorMessage;
 
 
     string reservationCode;
@@ -156,6 +161,7 @@
         // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
         if (displayReservations.Count() == 1)
         {
+            selectedReservationCode = displayReservations[0].Code; // Was missing this line to auto populate
             Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
             resCode = selectedReservation.Code;
             flightCode = selectedReservation.ResFlight.Code;
@@ -187,10 +193,34 @@
     {
         if (resCode != "Reservation")
         {
-            Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(resCode)).FirstOrDefault();
-            savedReservation.Name = clientName;
-            savedReservation.Citizenship = clientCitizenship;
-            savedReservation.Status = status;
+            try
+            {
+                Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(resCode)).FirstOrDefault();
+                savedReservation.Name = clientName;
+                savedReservation.Citizenship = clientCitizenship;
+                savedReservation.Status = status;
+            }
+            catch (ArgumentNullException f)
+            {
+                errorMessage = "No Flight selected. Please select one!";
+            }
+            catch (InvalidNameException n)
+            {
+                errorMessage = "No Name entered. Please enter a name.";
+            }
+            catch (InvalidCitizenshipException c)
+            {
+                errorMessage = "No Citizenship entered. Enter Citizenship.";
+            }
+            catch (InvalidOperationException o)
+            {
+                errorMessage = "No available seats on current flight.";
+            }
+            catch (ReservationAlreadyExisitsException r)
+            {
+                errorMessage = "Reservation already exists.";
+            }
+        
             ReservationManager.Persist();
         }
     }

@@ -21,8 +21,6 @@ namespace Assignment2OOP.Data
         int numOfSeats;
         double cost;
 
-
-
         public string Code { get; set; }
         public string Airline { get; set; }
         public string Origin { get; set; }

@@ -30,8 +30,15 @@ namespace Assignment2OOP.Data
                 switch (value.ToLower())
                 {
                     case "active":
-                        ResFlight.NumOfSeats -= 1;
-                        status = "Active";
+                        if (ResFlight.NumOfSeats >= 0)
+                        {
+                            ResFlight.NumOfSeats -= 1;
+                            status = "Active";
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException();
+                        }
                         break;
                     default:
                         ResFlight.NumOfSeats += 1;
