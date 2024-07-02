@@ -138,9 +138,6 @@
 
     List<Flight> displayFlights = new List<Flight>(); // display list
 
-    ReservationManager reservationManager = new ReservationManager();
-    List<Reservation> reservations = ReservationManager.GetReservations();
-
 
 
     //-- Flight Finder Variables -----
@@ -286,7 +283,7 @@
             {
                 throw new InvalidCitizenshipException();
             }
-            reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
+            reservationCode = ReservationManager.MakeReservation(selectedFlight, clientName, clientCitizenship);
             errorMessage = string.Empty;
         }
 

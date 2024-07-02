@@ -187,8 +187,6 @@
     void FindReservations()
     {
 
-        ReservationManager.populateExistingReservationList();
-
 
         //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
         //Maybe add airline to reservations.csv to satisfy this method?
@@ -242,7 +240,7 @@
         // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
         if (displayReservations.Count() == 1)
         {
-            Reservation selectedReservation = reservations[0];
+            Reservation selectedReservation = displayReservations[0];
             resCode = selectedReservation.Code;
             flightCode = selectedReservation.ResFlight.Code;
             flightAirline = selectedReservation.ResFlight.Airline;
@@ -307,9 +305,9 @@
                 {
                     throw new InvalidCitizenshipException();
                 }
-                ReservationManager.populateExistingReservationList();
+                ReservationManager.PopulateReservations();
 
-                ReservationManager.Persist(selectedReservationCode);
+                ReservationManager.Persist();
                 errorMessage = string.Empty;
 
 

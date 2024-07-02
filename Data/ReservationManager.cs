@@ -8,18 +8,15 @@ namespace Assignment2OOP.Data
 {
     public class ReservationManager
     {
-
-
-        string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv");
-        public static List<Reservation> reservations = new List<Reservation>();
-
+        //reservations Dictionary: Stores all created reservations while only allowing unique reservations to be created
+        public static Dictionary<string, Reservation> reservations = new Dictionary<string, Reservation>();
         public static List<string> reservationCodeList = new List<string>();
-        public static List<Reservation> draftReservationList = new List<Reservation>();
-        
-        public static List<string> reservationPersistList = new List<string>();
+        public static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv");
+
 
         public ReservationManager()
         {
+            PopulateReservations();
         }
 
         // MakeReservation:
@@ -29,11 +26,10 @@ namespace Assignment2OOP.Data
         // An exception is thrown if the number of seats on the Flight object is less than 1.
         // An exception is thrown if the reservation already exists on the reservation list.
         // Once created the reservations list is saved to the reservations csv file via the Persist method.
-        public static string AddReservation(Flight flight, string clientName, string clientCitizenship) 
+        public static string MakeReservation(Flight flight, string clientName, string clientCitizenship) 
         {
             string reservationCode;
             
-
             do
             {
                 reservationCode = GenerateResCode();
@@ -50,16 +46,16 @@ namespace Assignment2OOP.Data
             else
             {
                 Reservation reservation = new Reservation(reservationCode, flight, clientName, clientCitizenship, status);
-                if (reservations.Contains(reservation) == false)
+                if (reservations.Values.Contains(reservation) == false)
                 {
-                    reservations.Add(reservation);
+                    reservations.Add(reservationCode, reservation);
                 }
                 else
                 {
                     throw new ReservationAlreadyExisitsException();
                 }
-
             }
+            ReservationManager.Persist();
             return reservationCode;
         }
 
@@ -70,7 +66,7 @@ namespace Assignment2OOP.Data
         public static string GenerateResCode()
         {
             Random rng = new Random();
-            char rngLetter = (char)('A' + rng.Next(0, 26)); // Uses ASCII character values Where 'A' starts at 63, 63 is then added to a number between 0-25 to produce a random letter
+            char rngLetter = (char)('A' + rng.Next(0, 26)); 
             int rngNumber = rng.Next(0, 10);
             int rngNumber2 = rng.Next(0, 10);
             int rngNumber3 = rng.Next(0, 10);
@@ -80,52 +76,56 @@ namespace Assignment2OOP.Data
             return reservationCode;
         }
 
-        public static List<Reservation> GetReservations() 
-        {
-            return reservations; 
-        }
-
         // Persist:
-        // A list of type string is creaetd to contain each Reservation objects string file format.
+        // A list of type string is created to contain each Reservation objects string file format.
+        // The Reservation objects stored in each value is added to the list.
         // The FormatForFile method is called to retrieve each Reservation's code, flight code and client's name, citizenship, and status.
         // Each reservation is then added to the csv file.
-        public static void Persist(string reservationCode)  
+        public static void Persist()  
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv");
             List<string> saveReservationsToFile = new List<string>();
-            var saveRes = reservations.Where(p => p.Code == reservationCode);
-            foreach (Reservation res in reservations)
+            foreach (KeyValuePair<string, Reservation> kvp in reservations)
             {
-             
-            saveReservationsToFile.Add(res.FormatForFile());
-            
-                
+                saveReservationsToFile.Add(kvp.Value.FormatForFile());
             }
             File.WriteAllLines(filePath, saveReservationsToFile); 
-            reservationPersistList = saveReservationsToFile;
         }
 
         // PopulateReservations:
         // This method creates a series of Reservation objects from a reservations.csv file.
         // The Flight code is used from the csv file to retrieve the corresponding Flight object.
         // The reservation's code is added to reservationCodeList to ensure subsequent reservation codes are unique.
-        // It checks if the file has items on the list and then proceeds with the reservation creation.
-        // Once created, the reservation is added to the reservations list.
-        public static void populateExistingReservationList()
+        // The reservation code and reservataion object are added to the reservation dictionary to ensure that it doesn't generate duplicate reservations.
+        // A try-catch block is used to catch potential exceptions that are generated when a reservation code that already exists is added as a key.
+        public static void PopulateReservations()
         {
-            string fileResPersPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\..\\..\\Resources\\Res\\reservations.csv");
             Reservation resPerList;
-            foreach (string line in File.ReadAllLines(fileResPersPath))
+            foreach (string line in File.ReadAllLines(filePath))
             {
                 string[] parts = line.Split(",");
                 Flight flight = FlightManager.getFlightViaCode(parts[1]);
                 resPerList = new Reservation (parts[0], flight, parts[2], parts[3], parts[4]);
-                if(!reservations.Contains(resPerList))
+                try
                 {
-                    reservations.Add(resPerList); 
-
+                    reservations.Add(parts[0], resPerList);
+                }
+                catch (Exception ex) 
+                { 
                 }
             }
+        }
+
+        // GetReservations:
+        // This method creates a list of type Reservation from the reservation Dictionary values.
+        // The list of reservtions is returned.
+        public static List<Reservation> GetReservations()
+        {
+            List<Reservation> listOfReservations = new List<Reservation>();
+            foreach (KeyValuePair<string, Reservation> kvp in reservations)
+            {
+                listOfReservations.Add(kvp.Value);
+            }
+            return listOfReservations;
         }
 
     }
