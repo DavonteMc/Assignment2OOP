@@ -27,16 +27,26 @@ namespace Assignment2OOP.Data
             }
             set
             {
-                switch (value.ToLower())
+                //trying to fix the not null 
+                
+                if (ResFlight != null)
                 {
-                    case "active":
-                        ResFlight.NumOfSeats -= 1;
-                        status = "Active";
-                        break;
-                    default:
-                        ResFlight.NumOfSeats += 1;
-                        status = "Inactive"; 
-                        break;
+                    switch (value.ToLower())
+                    {
+                        case "active":
+                            ResFlight.NumOfSeats -= 1;
+                            status = "Active";
+                            break;
+                        default:
+                            ResFlight.NumOfSeats += 1;
+                            status = "Inactive"; 
+                            break;
+                    }
+
+                }
+                else
+                {
+                    status = value;
                 }
             }
         }
@@ -51,6 +61,11 @@ namespace Assignment2OOP.Data
             this.Name = clientName;
             this.Citizenship = clientCitizenship;
             this.Status = status;
+        }
+
+        public string FormatForFile()
+        {
+            return $"{Code},{ResFlight.Code},{Name},{Citizenship},{Status}";
         }
     }
 }

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Assignment2OOP.Components.Pages;
+using Assignment2OOP.Data;
 
 namespace Assignment2OOP.WinUI
 {
@@ -33,6 +35,11 @@ namespace Assignment2OOP.WinUI
                 global::System.Threading.SynchronizationContext.SetSynchronizationContext(context);
                 new App();
             });
+
+            var Flights = new Flights();
+            Flights.CreateReservation();
+
+
         }
     }
 #endif

@@ -7,7 +7,8 @@
         <div>
             <label for="resCode">Code:</label>
             <select @onchange="SelectCode">
-                <option disabled selected>Any</option>
+                <option disabled>Code</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.Code">@res.Code</option>
@@ -17,7 +18,8 @@
         <div>
             <label for="resAirline">Airline:</label>
             <select @onchange="SelectAirline">
-                <option disabled selected>Any</option>
+                <option disabled>Airline</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.ResFlight.Airline">@res.ResFlight.Airline</option>
@@ -27,7 +29,8 @@
         <div>
             <label for="resClientName">Name:</label>
             <select @onchange="SelectName">
-                <option disabled selected>Any</option>
+                <option disabled>Name</option>
+                <option selected>Any</option>                
                 @foreach (Reservation res in reservations)
                 {
                     <option value="@res.Name">@res.Name</option>
@@ -45,7 +48,7 @@
             <option disabled selected>Loading...</option>
             @if (displayReservations.Count == 0)
             {
-                <option disabled >Loading...</option>
+                <option disabled>Loading...</option>
             }
             else
             {
@@ -78,7 +81,7 @@
         </div>
         <div>
             <label for="resClientName">Name</label>
-            <input type="number" class="form-control" placeholder="Name" @bind="@clientName"  />
+            <input type="text" class="form-control" placeholder="Name" @bind="@clientName"  />
         </div>
         <div>
             <label for="resClientCitizenship">Citizenship</label>
@@ -93,7 +96,7 @@
             </select>
         </div>
     </form>
-    <button type="submit" class="btn btn-primary" >Save</button>
+    <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
 </section>
 
 
@@ -105,6 +108,7 @@
 
     ReservationManager reservationManager = new ReservationManager();
     List<Reservation> reservations = ReservationManager.GetReservations();
+
 
     string selectedCode = "";
     string selectedAirline = "";
@@ -140,8 +144,68 @@
 
     void FindReservations()
     {
+
+        //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
+        //Maybe add airline to reservations.csv to satisfy this method?
+
         displayReservations.Clear();
-        displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Any Selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode == "Any") && (selectedAirline == "Any") && (selectedName == "Any")) //All filtered Code/Airline/Name
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode != "Any") && (selectedAirline != "Any")) // Code & Airline selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode != "Any") && (selectedName != "Any")) // Code & Name selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedAirline != "Any") && (selectedName != "Any")) // Airline & Name selected
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if (selectedCode != "Any") // Code Selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper())).ToList();
+        }
+
+        else if (selectedAirline != "Any") // Airline Selected
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+
+        else if (selectedName != "Any") // Name Selected
+        {
+            displayReservations = reservations.Where(r => r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
+        if (displayReservations.Count() == 1)
+        {
+            Reservation selectedReservation = reservations[0];
+            resCode = selectedReservation.Code;
+            flightCode = selectedReservation.ResFlight.Code;
+            flightAirline = selectedReservation.ResFlight.Airline;
+            flightCost = selectedReservation.ResFlight.Cost;
+            clientName = selectedReservation.Name;
+            clientCitizenship = selectedReservation.Citizenship;
+            status = selectedReservation.Status;
+        }
     }
 
     void SelectReservation(ChangeEventArgs e)
@@ -158,7 +222,30 @@
             clientCitizenship = selectedReservation.Citizenship;
             status = selectedReservation.Status;
         }
+        //Trying to get the existing Reservation's to populate. The else function doesn't do anything atm.
+        else
+        {
+            reservationManager.populateExistingReservationList();
+        }
     }
+
+    void SaveReservation() //Trying to figure out how to filter out already added reservations
+    {        
+        Reservation savedReservation = reservations.FirstOrDefault(r => r.Code.ToUpper() == resCode.ToUpper());
+        if (savedReservation != null)
+        {
+            savedReservation.Name = clientName;
+            savedReservation.Citizenship = clientCitizenship;
+            savedReservation.Status = status;
+            ReservationManager.Persist(savedReservation.Code);
+        }
+        else
+        {
+            Console.WriteLine("Reservation is already saved!");
+        }
+    }
+
+
 
     
 }
