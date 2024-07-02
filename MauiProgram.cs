@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 
+// Authors: Carson, Davonte, Josh group 2
+
 namespace Assignment2OOP
 {
     public static class MauiProgram

@@ -1,2 +1,47 @@
-body[b-bn029c0lax] {
+.mainPage[b-bn029c0lax] {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#findFlightSection[b-bn029c0lax] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+}
+
+#displayFlightSection[b-bn029c0lax] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+}
+
+#reserveFlightSection[b-bn029c0lax] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 600px;
+}
+
+h3[b-bn029c0lax] {
+    text-align: center;
+}
+
+#leaving_from[b-bn029c0lax] {
+    width: 220px;
+}
+
+#going_to[b-bn029c0lax] {
+    width: 220px;
+}
+
+#day[b-bn029c0lax] {
+    width: 220px;
+}
+
+section div select[b-bn029c0lax], #displayBox[b-bn029c0lax] {
+    width: 220px;
 }
