@@ -156,6 +156,8 @@
     string clientName;
     string clientCitizenship;
     string reservationCode;
+    string errorMessage;
+
 
     void SelectOrigin(ChangeEventArgs e)
     {
@@ -237,7 +239,6 @@
     }
 
     //ArgumentNullException here App.g.i.cs has the SVM
-    string errorMessage;
     public async void CreateReservation()
     {
         try
@@ -261,6 +262,8 @@
             reservationCode = ReservationManager.AddReservation(selectedFlight, clientName, clientCitizenship);
             errorMessage = string.Empty;
         }
+
+
         catch (ArgumentNullException f)
         {
             errorMessage = "No Flight selected. Please select one!";
@@ -273,6 +276,17 @@
         {
             errorMessage = "No Citizenship entered. Enter Citizenship.";
         }
+
+        catch (InvalidOperationException o)
+        {
+            errorMessage = "Invalid Opoeration";
+        }
+
+        catch (ReservationAlreadyExisitsException e)
+        {
+            errorMessage = "Reservation already exists!";
+        }
+
     }
 
 }

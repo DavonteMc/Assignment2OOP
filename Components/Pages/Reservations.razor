@@ -97,6 +97,20 @@
         </div>
     </form>
     <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
+
+    @if (string.IsNullOrEmpty(clientName))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (selectedReservationCode == null)
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+    else if (string.IsNullOrEmpty(clientCitizenship))
+    {
+        <p class="text-alert">@errorMessage</p>
+    }
+
 </section>
 
 
@@ -124,6 +138,8 @@
     string clientName;
     string clientCitizenship;
     string status;
+    string errorMessage;
+
 
 
     string reservationCode;
@@ -144,6 +160,9 @@
 
     void FindReservations()
     {
+
+        ReservationManager.populateExistingReservationList();
+
 
         //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
         //Maybe add airline to reservations.csv to satisfy this method?
@@ -211,6 +230,7 @@
     void SelectReservation(ChangeEventArgs e)
     {
         selectedReservationCode = e.Value.ToString();
+
         if (selectedReservationCode != null)
         {
             Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
@@ -222,26 +242,67 @@
             clientCitizenship = selectedReservation.Citizenship;
             status = selectedReservation.Status;
         }
-        //Trying to get the existing Reservation's to populate. The else function doesn't do anything atm.
-        else
-        {
-            reservationManager.populateExistingReservationList();
-        }
     }
 
-    void SaveReservation() //Trying to figure out how to filter out already added reservations
+    public async void SaveReservation() //Trying to figure out how to filter out already added reservations
     {        
-        Reservation savedReservation = reservations.FirstOrDefault(r => r.Code.ToUpper() == resCode.ToUpper());
-        if (savedReservation != null)
         {
-            savedReservation.Name = clientName;
-            savedReservation.Citizenship = clientCitizenship;
-            savedReservation.Status = status;
-            ReservationManager.Persist(savedReservation.Code);
-        }
-        else
-        {
-            Console.WriteLine("Reservation is already saved!");
+            try
+            {
+                Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+                savedReservation.Name = clientName;
+                savedReservation.Citizenship = clientCitizenship;
+                savedReservation.Status = status; 
+
+                if (selectedReservationCode == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                if (string.IsNullOrEmpty(clientName))
+                {
+                    throw new InvalidNameException();
+
+                }
+
+                if (string.IsNullOrEmpty(clientCitizenship))
+                {
+                    throw new InvalidCitizenshipException();
+                }
+                ReservationManager.populateExistingReservationList();
+
+                ReservationManager.Persist(selectedReservationCode);
+                errorMessage = string.Empty;
+
+
+            }
+
+
+            catch (ArgumentNullException f)
+            {
+                errorMessage = "No Flight selected. Please select one!";
+            }
+            catch (InvalidNameException n)
+            {
+                errorMessage = "No Name entered. Please enter a name.";
+            }
+            catch (InvalidCitizenshipException c)
+            {
+                errorMessage = "No Citizenship entered. Enter Citizenship.";
+            }
+
+            catch (InvalidOperationException o)
+            {
+                errorMessage = "NO SEATS";
+            }
+
+            catch (ReservationAlreadyExisitsException e)
+            {
+                errorMessage = "Reservation already exists!";
+            }
+
+
+
         }
     }
 

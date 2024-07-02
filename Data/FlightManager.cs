@@ -32,7 +32,7 @@ namespace Assignment2OOP.Data
             return flights; 
         }
 
-        public static Flight getFlightCode(string code)
+        public static Flight getFlightViaCode(string code)
         {
             return flights.FirstOrDefault(p => p.Code == code);
         }
