@@ -2,126 +2,128 @@
 @using Assignment2OOP.Data
 @using Microsoft.AspNetCore.Components.Web
 
+<section class="mainPage">
+    <section id="findFlightSection">
+        <h3>Flight Finder</h3>
+        @* Flight Finder:
+        This section gives the user the ability to set the requirements for presenting a list of flights in the next section.
+        Requirements are set via 3 dropdown option menus.
+        Once the requirements are set, the FlightSearch button is clicked and it sends that information to the following section.*@
+        <form>
+            <div>
+                <label for="leavingFrom">Leaving From:</label>
+                <select id="leaving_from" @onchange="SelectOrigin">
+                    <option disabled>Departure</option>
+                    <option id="leaving_from" selected>Any</option>
+                    @foreach (Airport air in airports)
+                    {
+                        <option value="@air.Code">@air.Code - @air.Name</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="goingTo">Going To:</label>
+                <select id="going_to" @onchange="SelectDestination">
+                    <option disabled>Arrival</option>
+                    <option id="going_to" selected>Any</option>
+                    @foreach (Airport air in airports)
+                    {
+                        <option value="@air.Code">@air.Code - @air.Name</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="Day">Day:</label>
+                <select id="day" @onchange="SelectDay">
+                    <option disabled>Day</option>
+                    <option id="day" selected>Any</option>
+                    @foreach (string item in days)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
+    </section>
 
-<section id="findFlightSection">
-    @*This id allows us to target using css later in the flights.razor.css file*@
-    <h3>Flight Finder</h3>
-    <form>
+    <section id="displayFlightSection">
+        <h3>Display Flights</h3>
+        @* Display Flights:
+        This section presents a dropdown option menu containing the list of flights that match the requirements set by the user in the Flight Finder section.
+        Once a flight is selected it is sent to the next section.*@
         <div>
-            <label for="leavingFrom">Leaving From:</label>
-            <select id="leaving_from" @onchange="SelectOrigin">
-                <option disabled>Departure</option>
-                <option selected>Any</option>
-                @foreach (Airport air in airports)
+            <select @onchange="SelectFlight">
+                <option id="displayBox" disabled selected>Loading...</option>
+                @if (displayFlights.Count == 0)
                 {
-                    <option value="@air.Code">@air.Code - @air.Name</option>
+                    <option id="displayBox" disabled>Loading...</option>
+                }
+                else
+                {
+                    @foreach (Flight flight in displayFlights)
+                    {
+                        <option id="displayBox" value="@flight.Code">@flight.Code @flight.Airline @flight.Origin @flight.Destination @flight.Day @flight.Time @flight.NumOfSeats @flight.Cost</option>
+                    }
                 }
             </select>
-            @* <input type="text" id="leaving_from" class="form-control" placeholder="Any" /> *@
-            @*Will also need a @bind-value when doing the backend*@
         </div>
-        <div>
-            <label for="goingTo">Going To:</label>
-            <select id="going_to" @onchange="SelectDestination">
-                <option disabled>Arrival</option>
-                <option selected>Any</option>
-                @foreach (Airport air in airports)
-                {
-                    <option value="@air.Code">@air.Code - @air.Name</option>
-                }
-            </select>
-            @*             <label for="goingTo">Going To</label>
-            <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
-        </div>
-        <div>
-            <label for="Day">Day:</label>
-            <select id="day" @onchange="SelectDay">
-                <option disabled>Day</option>
-                <option selected>Any</option>
-                @foreach (string item in days)
-                {
-                    //TODO review below line of code**
-                    <option value="@item">@item</option>
-                }
-            </select>
-            @*  <label for="day">Day</label>
-            <input type="date" id="day" class="form-control" /> *@
-            @*This section, in the example has a placeholder, but it may have to display nothing for now*@
-        </div>
-    </form>
-    <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
-</section>
+    </section>
 
-<section id="findFlightSection">
-    <h3>Display Flights</h3>
-    <div>
-        <select @onchange="SelectFlight">
-            <option disabled selected>Loading...</option>
-            @if (displayFlights.Count == 0)
-            {
-                <option disabled>Loading...</option>
-            }
-            else
-            {
-                @foreach (Flight flight in displayFlights)
-                {
-                    <option value="@flight.Code">@flight.Code @flight.Airline @flight.Origin @flight.Destination @flight.Day @flight.Time @flight.NumOfSeats @flight.Cost</option>
-                }
-            }
-        </select>
-        @*  <input class="form-control" placeholder="loading" /> *@
-        @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
-    </div>
-</section>
-<section id="findFlightSection">
-    <h3>Reserve Flights</h3>
-    <form>
-        <div>
-            <label for="flightCode">Flight Code</label>
-            <input type="text" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
-        </div>
-        <div>
-            <label for="airline">Airline</label>
-            <input type="text" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
-        </div>
-        <div>
-            <label for="flightDay">Day</label>
-            <input type="text" class="form-control" placeholder="@flightDay" @bind="@flightDay" disabled />
-        </div>
-        <div>
-            <label for="flightTime">Time</label>
-            <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled />
-        </div>
-        <div>
-            <label for="flightCost">Cost</label>
-            <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
-        </div>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" class="form-control" placeholder="Name" @bind="@clientName" />
-        </div>
-        <div>
-            <label for="citizenship">Citizenship</label>
-            <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
-        </div>
-    </form>
+    <section id="reserveSection">
+        <h3>Reserve Flights</h3>
+        @* Reserve Flight:
+        This allows the user to create a reservation with the flight recieved from the last section and the client's name and citizenship.
+        The user is presented with a read-only view of the flight's key information.
+        The user can input the client's name and citizenship to create the reservation.*@
+        <form>
+            <div>
+                <label for="flightCode">Flight Code</label>
+                <input type="text" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
+            </div>
+            <div>
+                <label for="airline">Airline</label>
+                <input type="text" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
+            </div>
+            <div>
+                <label for="flightDay">Day</label>
+                <input type="text" class="form-control" placeholder="@flightDay" @bind="@flightDay" disabled />
+            </div>
+            <div>
+                <label for="flightTime">Time</label>
+                <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled />
+            </div>
+            <div>
+                <label for="flightCost">Cost</label>
+                <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
+            </div>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" placeholder="Name" @bind="@clientName" />
+            </div>
+            <div>
+                <label for="citizenship">Citizenship</label>
+                <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
+            </div>
+        </form>
 
 
-    <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
-    @if (string.IsNullOrEmpty(clientName))
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
-    else if (selectedFlightCode == null)
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
-    else if (string.IsNullOrEmpty(clientCitizenship))
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
+        <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
+        @if (string.IsNullOrEmpty(clientName))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (selectedFlightCode == null)
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (string.IsNullOrEmpty(clientCitizenship))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
 
-    <p>Reservation Code: @reservationCode</p>
+        <p>Reservation Code: @reservationCode</p>
+    </section>
 </section>
 
 @code {
@@ -141,13 +143,13 @@
 
 
 
-    // new list > hold the items for flights that meet the Condition A && B && C = new list (Newlist is going to be foreach() inside to display)
+    //-- Flight Finder Variables -----
     string selectedOrigin = "";
     string selectedDestination = "";
     string selectedDay = "";
-
     string selectedFlightCode;
 
+    //-- Reserve Flight Variables -----
     string flightCode = "Flight Code";
     string flightAirline = "Airline";
     string flightDay = "Day";
@@ -158,21 +160,34 @@
     string reservationCode;
     string errorMessage;
 
-
+    //-- Flight Finder Methods -----
+    // SelectOrigin:
+    // Retrieves the user selected origin for the flight and sets it to a corresponding variable
     void SelectOrigin(ChangeEventArgs e)
     {
         selectedOrigin = e.Value.ToString();
     }
 
+    // SelectDestination:
+    // Retrieves the user selected destination for the flight and sets it to a corresponding variable
     void SelectDestination(ChangeEventArgs e)
     {
         selectedDestination = e.Value.ToString();
     }
+
+    // SelectDay:
+    // Retrieves the user selected day for the flight and sets it to a corresponding variable
     void SelectDay(ChangeEventArgs e)
     {
         selectedDay = e.Value.ToString();
     }
 
+    // FlightSearch:
+    // This method uses the selectedOrigin, selectedDestination, and selectedDay variables to search for matching flights.
+    // It uses a large conditional block to address every possible state within the search filter.
+    // Matching flights are stored in a seperate list called displayFlights that is cleared when the method is called.
+    // Due to the use of the @onchange event not registering user selections when the amount of matching lists is 1,
+    // the method will automatically populate the following section with that flight.
     void FlightSearch()
     {
 
@@ -224,6 +239,12 @@
         }
     }
 
+    //-- Display Flight Method -----
+    // SelectFlight:
+    // Receives the user selected flight's code and sets it to a variable called selectedFlightCode.
+    // The selectedFlightCode variable is used to retrieve the flight with the matching code.
+    // The flight's code, airline, day, time and cost are set to corresponding variables.
+    // The set variables populate the input fields in following section.
     void SelectFlight(ChangeEventArgs e)
     {
         selectedFlightCode = e.Value.ToString();
@@ -238,7 +259,13 @@
         }
     }
 
-    //ArgumentNullException here App.g.i.cs has the SVM
+    //-- Reserve Flight Method -----
+    // CreateReservation:
+    // The selectedFlightCode is used to retrieve the flight with the matching code.
+    // A try-catch block is used to create a reservation using the MakeReservation method from the ReservationManager class.
+    // 5 specific exceptions are caught if an exception is raised before the reservation can be created.
+    // The Reservation is created with the retrieved flight, and two inputs made by the user (client's name and citizenship)
+    // Once the reservation is successfuly created the unique and randomly generated Reservation code is generated and presented to the user.
     public async void CreateReservation()
     {
         try

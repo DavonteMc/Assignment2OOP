@@ -16,6 +16,8 @@ namespace Assignment2OOP.Data
             PopulateFlights();
         }
 
+        // PopulteFlights:
+        // This method creates a series of Flight objects from a flights.csv file.
         public void PopulateFlights()
         {
             Flight flight;

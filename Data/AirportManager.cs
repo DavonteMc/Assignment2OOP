@@ -17,6 +17,8 @@ namespace Assignment2OOP.Data
             PopulateAirports();
         }
 
+        // PopulateAirports:
+        // This method creates a series of Airports objects from a airports.csv file.
         public void PopulateAirports()
         {
             Airport airport;

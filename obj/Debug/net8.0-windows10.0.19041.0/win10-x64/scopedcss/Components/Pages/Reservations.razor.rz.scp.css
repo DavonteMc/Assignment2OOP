@@ -1,0 +1,47 @@
+.mainPage[b-y5evurglyd] {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#findReservationSection[b-y5evurglyd] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+}
+
+#displayReservationSection[b-y5evurglyd] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+}
+
+#reserveSection[b-y5evurglyd] {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 600px;
+}
+
+h3[b-y5evurglyd] {
+    text-align: center;
+}
+
+#leaving_from[b-y5evurglyd] {
+    width: 220px;
+}
+
+#going_to[b-y5evurglyd] {
+    width: 220px;
+}
+
+#day[b-y5evurglyd] {
+    width: 220px;
+}
+
+section div select[b-y5evurglyd], #displayBox[b-y5evurglyd] {
+    width: 220px;
+}
