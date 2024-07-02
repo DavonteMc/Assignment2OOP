@@ -16,6 +16,8 @@ namespace Assignment2OOP.Data
             PopulateFlights();
         }
 
+        // PopulteFlights:
+        // This method creates a series of Flight objects from a flights.csv file.
         public void PopulateFlights()
         {
             Flight flight;
@@ -27,6 +29,14 @@ namespace Assignment2OOP.Data
             }
         }
 
-        public static List<Flight> GetFlights() { return flights; }
+        public static List<Flight> GetFlights() 
+        { 
+            return flights; 
+        }
+
+        public static Flight getFlightViaCode(string code)
+        {
+            return flights.FirstOrDefault(p => p.Code == code);
+        }
     }
 }

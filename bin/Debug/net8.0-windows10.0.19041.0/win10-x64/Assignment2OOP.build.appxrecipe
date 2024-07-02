@@ -511,6 +511,12 @@
     <AppxPackagedFile Include="C:\OOP2\oop2\Assignment2OOP\Components\Layout\NavMenu.razor.css">
       <PackagePath>Components\Layout\NavMenu.razor.css</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\OOP2\oop2\Assignment2OOP\Components\Pages\Flights.razor.css">
+      <PackagePath>Components\Pages\Flights.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\OOP2\oop2\Assignment2OOP\Components\Pages\Reservations.razor.css">
+      <PackagePath>Components\Pages\Reservations.razor.css</PackagePath>
+    </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
     <ResolvedSDKReference Include="C:\Users\15872\.nuget\packages\microsoft.windowsappsdk\1.5.240311000\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.5.msix">

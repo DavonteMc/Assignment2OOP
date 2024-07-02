@@ -1,66 +1,350 @@
 ﻿@page "/reservations"
-<h2>Reservation Finder</h2>
-    <div class="form-group">
-        <label for="codeID">Code:</label>
-        <input type="text" class="form-control" id="codeID" aria-describedby="codeID" placeholder="Any"> 
-    </div>
-    <div class="form-group">
-        <label for="airlineID">Airline:</label>
-        <input type="text" class="form-control" id="airlineID" aria-describedby="airlineID" placeholder="Any"> 
-    </div>
-    <div class="form-group">
-        <label for="nameID">Name:</label>
-        <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Any"> 
-    </div>
-    <button type="submit" class="btn btn-primary">Find Reservation</button>
+@using Assignment2OOP.Data
 
+<section class="mainPage">
+    <section id="findReservationSection">
+        <h3>Reservation Finder</h3>
+        @* Reservation Finder:
+        This section gives the user the ability to set the requirements for presenting a list of flights in the next section.
+        Requirements are set via 3 dropdown option menus.
+        Once the requirements are set, the FlightSearch button is clicked and it sends that information to the following section.*@
+        <form>
+            <div>
+                <label for="resCode">Code:</label>
+                <select id="inputStyle" @onchange="SelectCode">
+                    <option disabled>Code</option>
+                    <option id="inputStyle" selected>Any</option>
+                    @foreach (Reservation res in reservations)
+                    {
+                        <option value="@res.Code">@res.Code</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="resAirline">Airline:</label>
+                <select @onchange="SelectAirline">
+                    <option disabled>Airline</option>
+                    <option id="inputStyle" selected>Any</option>
+                    @foreach (Reservation res in reservations)
+                    {
+                        <option value="@res.ResFlight.Airline">@res.ResFlight.Airline</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="resClientName">Name:</label>
+                <select id ="inputStyle" @onchange="SelectName">
+                    <option disabled>Name</option>
+                    <option id="inputStyle" selected>Any</option>
+                    @foreach (Reservation res in reservations)
+                    {
+                        <option value="@res.Name">@res.Name</option>
+                    }
+                </select>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" @onclick="FindReservations">Find Reservations</button>
+    </section>
 
-<h2>Reservations</h2>
-    <div class="form-group">
-        <label for="reservationID">Flights</label>
-        <select 
-            type="text" class="form-control" id="theID" aria-describedby="reservationID">
-            <option selected disabled>Loading...</option>
-            <option>flight 1</option>
-            <option>flight 2</option>
-        </select>
-    </div>
+    <section id="displayReservationSection">
+        <h3>Reservations</h3>
+        @* Display Reservations:
+        This section presents a dropdown option menu containing the list of flights that match the requirements set by the user in the Flight Finder section.
+        Once a flight is selected it is sent to the next section.*@
+        <div>
+            <select id="inputStyle" @onchange="SelectReservation">
+                <option id="inputStyle" disabled selected>Loading...</option>
+                @if (displayReservations.Count == 0)
+                {
+                    <option id ="inputStyle" disabled>Loading...</option>
+                }
+                else
+                {
+                    @foreach (Reservation res in displayReservations)
+                    {
+                        <option id="inputStyle" value="@res.Code">@res.Code @res.ResFlight.Code @res.ResFlight.Airline @res.ResFlight.Cost @res.Name @res.Citizenship @res.Status</option>
+                    }
+                }
+            </select>
+        </div>
+    </section>
+    <section id="reserveSection">
+        <h3>Reserve</h3>
+        @* Reserve:
+        This allows the user to create a reservation with the flight recieved from the last section and the client's name and citizenship.
+        The user is presented with a read-only view of the flight's key information.
+        The user can input the client's name and citizenship to create the reservation.*@
+        <form>
+            <div>
+                <label for="reservationCode">Reservation Code</label>
+                <input type="text" id="reservationCode" class="form-control" placeholder="@resCode" @bind="@resCode" disabled />
+            </div>
+            <div>
+                <label for="resFlightCode">Flight Code</label>
+                <input type="text" id="resFlightCode" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
+            </div>
+            <div>
+                <label for="resFlightAirline">Airline</label>
+                <input type="text" id="resFlightAirline" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
+            </div>
+            <div>
+                <label for="resFlightCost">Cost</label>
+                <input type="text" id="resFlightCost" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
+            </div>
+            <div>
+                <label for="resClientName">Name</label>
+                <input type="text" class="form-control" placeholder="Name" @bind="@clientName"  />
+            </div>
+            <div>
+                <label for="resClientCitizenship">Citizenship</label>
+                <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
+            </div>
+            <div>
+                <label for="resStatus">Status</label>
+                <select id="resStatus" @bind="@status">
+                    <option disabled>Any</option>
+                    <option value="active" selected>Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
 
+        @if (string.IsNullOrEmpty(clientName))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (selectedReservationCode == null)
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (string.IsNullOrEmpty(clientCitizenship))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
 
-<h2>Reserve</h2>
-    <div class="form-group">
-        <label for="reservationID">Reservation Code:</label>
-    <input type="text" class="form-control" id="reservationID" aria-describedby="reservationID" placeholder="Enter the code">
-    </div>
-    <div class="form-group">
-        <label for="flightCodeID">FLight Code:</label>
-    <input type="text" class="form-control" id="flightCodeID" aria-describedby="flightCodeID" placeholder="Enter the flight">
-</div>
-    <div class="form-group">
-        <label for="airlineID">Airline:</label>
-    <input type="text" class="form-control" id="airlineID" aria-describedby="emailHairlineIDelp" placeholder="Enter the Airline">
-</div>
-    <div class="form-group">
-        <label for="costID">Cost</label>
-    <input disabled type="text" class="form-control" id="costID" aria-describedby="costID" placeholder="The cost display Here">
-</div>
-    <div class="form-group">
-        <label for="nameID">Name</label>
-    <input type="text" class="form-control" id="nameID" aria-describedby="nameID" placeholder="Your name here">
-</div>
-    <div class="form-group">
-        <label for="citizenshipID">Citizenship:</label>
-    <input type="text" class="form-control" id="theID" aria-describedby="citizenshipID" placeholder="Citizenshipo">
-</div>
-<div>
-    <label>
-        Status:
-    </label>
-    <input disabled id="status" type="text" placeholder="Active"/>
-</div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    </section>
+</section>
 
 
 @code {
+    FlightManager flightManager = new FlightManager();
+    List<Flight> flights = FlightManager.GetFlights(); //actual list
 
+    List<Reservation> displayReservations = new List<Reservation>(); // display list
+
+    ReservationManager reservationManager = new ReservationManager();
+    List<Reservation> reservations = ReservationManager.GetReservations();
+
+    //-- Reservation Finder Variables -----
+    string selectedCode = "";
+    string selectedAirline = "";
+    string selectedName = "";
+    string selectedReservationCode;
+    Reservation selectedReservation;
+    
+    //-- Display & Save Reservation Variables -----
+    string resCode = "Reservation";
+    string flightCode = "Flight";
+    string flightAirline = "Airline";
+    double flightCost = 0;
+    string clientName;
+    string clientCitizenship;
+    string status;
+    string errorMessage;
+    string reservationCode;
+
+
+    //-- Reservation Finder Methods -----
+    // SelectCode:
+    // Retrieves the user selected origin for the flight and sets it to a corresponding variable
+    void SelectCode(ChangeEventArgs e)
+    {
+        selectedCode = e.Value.ToString();
+    }
+
+
+    // SelectAirline:
+    // Retrieves the user selected destination for the flight and sets it to a corresponding variable
+    void SelectAirline(ChangeEventArgs e)
+    {
+        selectedAirline = e.Value.ToString();
+    }
+
+    // SelectName:
+    // Retrieves the user selected day for the flight and sets it to a corresponding variable
+    void SelectName(ChangeEventArgs e)
+    {
+        selectedName = e.Value.ToString();
+    }
+
+    // FindReservations:
+    // This method uses the selectedCode, selectedAirline, and selectedName variables to search for matching reservations.
+    // It uses a large conditional block to address every possible state within the search filter.
+    // Matching reservations are stored in a seperate list called displayReservations that is cleared when the method is called.
+    // Due to the use of the @onchange event not registering user selections when the amount of matching lists is 1,
+    // the method will automatically populate the following section with that reservation.
+    void FindReservations()
+    {
+
+        ReservationManager.populateExistingReservationList();
+
+
+        //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
+        //Maybe add airline to reservations.csv to satisfy this method?
+
+        displayReservations.Clear();
+        if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Any Selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode == "Any") && (selectedAirline == "Any") && (selectedName == "Any")) //All filtered Code/Airline/Name
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode != "Any") && (selectedAirline != "Any")) // Code & Airline selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+
+        else if ((selectedCode != "Any") && (selectedName != "Any")) // Code & Name selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if ((selectedAirline != "Any") && (selectedName != "Any")) // Airline & Name selected
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) && r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else if (selectedCode != "Any") // Code Selected
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper())).ToList();
+        }
+
+        else if (selectedAirline != "Any") // Airline Selected
+        {
+            displayReservations = reservations.Where(r => r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper())).ToList();
+        }
+
+        else if (selectedName != "Any") // Name Selected
+        {
+            displayReservations = reservations.Where(r => r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        else
+        {
+            displayReservations = reservations.Where(r => r.Code.ToUpper().Contains(selectedCode.ToUpper()) || r.ResFlight.Airline.ToUpper().Contains(selectedAirline.ToUpper()) || r.Name.ToUpper().Contains(selectedName.ToUpper())).ToList();
+        }
+
+        // ChangeEventArgs won't register a clicked item if it's the only option so this is added to overcome that
+        if (displayReservations.Count() == 1)
+        {
+            Reservation selectedReservation = reservations[0];
+            resCode = selectedReservation.Code;
+            flightCode = selectedReservation.ResFlight.Code;
+            flightAirline = selectedReservation.ResFlight.Airline;
+            flightCost = selectedReservation.ResFlight.Cost;
+            clientName = selectedReservation.Name;
+            clientCitizenship = selectedReservation.Citizenship;
+            status = selectedReservation.Status;
+        }
+    }
+
+    //-- Display Reservation Method -----
+    // SelectReservation:
+    // Receives the user selected reservation's code and sets it to a variable called selectedReservationCode.
+    // The selectedReservationCode variable is used to retrieve the reservation with the matching code.
+    // The reservation's code, the flight's code, airline, and cost, and the client's name, citizenship and status are set to corresponding variables.
+    // The set variables populate the input fields in following section.
+    void SelectReservation(ChangeEventArgs e)
+    {
+        selectedReservationCode = e.Value.ToString();
+
+        if (selectedReservationCode != null)
+        {
+            Reservation selectedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+            resCode = selectedReservation.Code;
+            flightCode = selectedReservation.ResFlight.Code;
+            flightAirline = selectedReservation.ResFlight.Airline;
+            flightCost = selectedReservation.ResFlight.Cost;
+            clientName = selectedReservation.Name;
+            clientCitizenship = selectedReservation.Citizenship;
+            status = selectedReservation.Status;
+        }
+    }
+
+    //-- Reserve Method -----
+    // SaveReservation:
+    // The resCode is used to retrieve the reservation with the matching code.
+    // A try-catch block is used to retrieve and alter the reservation with the matching code.
+    // 5 specific exceptions are caught if an exception is raised before the reservation can be saved.
+    // The Persist method is called from the ReservationManager class to save the changes made to the object.
+    public async void SaveReservation() //Trying to figure out how to filter out already added reservations
+    {        
+        {
+            try
+            {
+                Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
+                savedReservation.Name = clientName;
+                savedReservation.Citizenship = clientCitizenship;
+                savedReservation.Status = status; 
+
+                if (selectedReservationCode == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                if (string.IsNullOrEmpty(clientName))
+                {
+                    throw new InvalidNameException();
+
+                }
+
+                if (string.IsNullOrEmpty(clientCitizenship))
+                {
+                    throw new InvalidCitizenshipException();
+                }
+                ReservationManager.populateExistingReservationList();
+
+                ReservationManager.Persist(selectedReservationCode);
+                errorMessage = string.Empty;
+
+
+            }
+
+
+            catch (ArgumentNullException f)
+            {
+                errorMessage = "No Flight selected. Please select one!";
+            }
+            catch (InvalidNameException n)
+            {
+                errorMessage = "No Name entered. Please enter a name.";
+            }
+            catch (InvalidCitizenshipException c)
+            {
+                errorMessage = "No Citizenship entered. Enter Citizenship.";
+            }
+
+            catch (InvalidOperationException o)
+            {
+                errorMessage = "NO SEATS";
+            }
+
+            catch (ReservationAlreadyExisitsException e)
+            {
+                errorMessage = "Reservation already exists!";
+            }
+
+
+
+        }
+    }
+
+
+
+    
 }

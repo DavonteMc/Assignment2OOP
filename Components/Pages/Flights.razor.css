@@ -1,0 +1,47 @@
+﻿.mainPage {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#findFlightSection {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+}
+
+#displayFlightSection {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+}
+
+#reserveFlightSection {
+    padding: 5px;
+    text-align: center;
+    width: 250px;
+    height: 600px;
+}
+
+h3 {
+    text-align: center;
+}
+
+#leaving_from {
+    width: 220px;
+}
+
+#going_to {
+    width: 220px;
+}
+
+#day {
+    width: 220px;
+}
+
+section div select, #displayBox {
+    width: 220px;
+}
