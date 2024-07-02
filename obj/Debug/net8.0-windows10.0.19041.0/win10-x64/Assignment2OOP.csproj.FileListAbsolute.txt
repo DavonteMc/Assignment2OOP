@@ -618,3 +618,5 @@ C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\quali
 C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\Flights.razor.rz.scp.css
+C:\OOP2\oop2\Assignment2OOP\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\Reservations.razor.rz.scp.css

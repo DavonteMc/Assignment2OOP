@@ -2,126 +2,127 @@
 @using Assignment2OOP.Data
 @using Microsoft.AspNetCore.Components.Web
 
+<section class="mainPage">
+    <section id="findFlightSection">
+        @*This id allows us to target using css later in the flights.razor.css file*@
+        <h3>Flight Finder</h3>
+        <form>
+            <div>
+                <label for="leavingFrom">Leaving From:</label>
+                <select id="leaving_from" @onchange="SelectOrigin">
+                    <option disabled>Departure</option>
+                    <option id="leaving_from" selected>Any</option>
+                    @foreach (Airport air in airports)
+                    {
+                        <option value="@air.Code">@air.Code - @air.Name</option>
+                    }
+                </select>
+                @* <input type="text" id="leaving_from" class="form-control" placeholder="Any" /> *@
+                @*Will also need a @bind-value when doing the backend*@
+            </div>
+            <div>
+                <label for="goingTo">Going To:</label>
+                <select id="going_to" @onchange="SelectDestination">
+                    <option disabled>Arrival</option>
+                    <option id="going_to" selected>Any</option>
+                    @foreach (Airport air in airports)
+                    {
+                        <option value="@air.Code">@air.Code - @air.Name</option>
+                    }
+                </select>
+                @*             <label for="goingTo">Going To</label>
+                <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
+            </div>
+            <div>
+                <label for="Day">Day:</label>
+                <select id="day" @onchange="SelectDay">
+                    <option disabled>Day</option>
+                    <option id="day" selected>Any</option>
+                    @foreach (string item in days)
+                    {
+                        //TODO review below line of code**
+                        <option value="@item">@item</option>
+                    }
+                </select>
+                @*  <label for="day">Day</label>
+                <input type="date" id="day" class="form-control" /> *@
+                @*This section, in the example has a placeholder, but it may have to display nothing for now*@
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
+    </section>
 
-<section id="findFlightSection">
-    @*This id allows us to target using css later in the flights.razor.css file*@
-    <h3>Flight Finder</h3>
-    <form>
+    <section id="displayFlightSection">
+        <h3>Display Flights</h3>
         <div>
-            <label for="leavingFrom">Leaving From:</label>
-            <select id="leaving_from" @onchange="SelectOrigin">
-                <option disabled>Departure</option>
-                <option selected>Any</option>
-                @foreach (Airport air in airports)
+            <select @onchange="SelectFlight">
+                <option id="displayBox" disabled selected>Loading...</option>
+                @if (displayFlights.Count == 0)
                 {
-                    <option value="@air.Code">@air.Code - @air.Name</option>
+                    <option id="displayBox" disabled>Loading...</option>
+                }
+                else
+                {
+                    @foreach (Flight flight in displayFlights)
+                    {
+                        <option id="displayBox" value="@flight.Code">@flight.Code @flight.Airline @flight.Origin @flight.Destination @flight.Day @flight.Time @flight.NumOfSeats @flight.Cost</option>
+                    }
                 }
             </select>
-            @* <input type="text" id="leaving_from" class="form-control" placeholder="Any" /> *@
-            @*Will also need a @bind-value when doing the backend*@
+            @*  <input class="form-control" placeholder="loading" /> *@
+            @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
         </div>
-        <div>
-            <label for="goingTo">Going To:</label>
-            <select id="going_to" @onchange="SelectDestination">
-                <option disabled>Arrival</option>
-                <option selected>Any</option>
-                @foreach (Airport air in airports)
-                {
-                    <option value="@air.Code">@air.Code - @air.Name</option>
-                }
-            </select>
-            @*             <label for="goingTo">Going To</label>
-            <input type="text" id="going_to" class="form-control" placeholder="Any" /> *@
-        </div>
-        <div>
-            <label for="Day">Day:</label>
-            <select id="day" @onchange="SelectDay">
-                <option disabled>Day</option>
-                <option selected>Any</option>
-                @foreach (string item in days)
-                {
-                    //TODO review below line of code**
-                    <option value="@item">@item</option>
-                }
-            </select>
-            @*  <label for="day">Day</label>
-            <input type="date" id="day" class="form-control" /> *@
-            @*This section, in the example has a placeholder, but it may have to display nothing for now*@
-        </div>
-    </form>
-    <button type="submit" class="btn btn-primary" @onclick="FlightSearch">Search Flights</button>
-</section>
-
-<section id="findFlightSection">
-    <h3>Display Flights</h3>
-    <div>
-        <select @onchange="SelectFlight">
-            <option disabled selected>Loading...</option>
-            @if (displayFlights.Count == 0)
-            {
-                <option disabled>Loading...</option>
-            }
-            else
-            {
-                @foreach (Flight flight in displayFlights)
-                {
-                    <option value="@flight.Code">@flight.Code @flight.Airline @flight.Origin @flight.Destination @flight.Day @flight.Time @flight.NumOfSeats @flight.Cost</option>
-                }
-            }
-        </select>
-        @*  <input class="form-control" placeholder="loading" /> *@
-        @*Temporary placeholder that needs to be a section that displays per each flight meeting the above search*@
-    </div>
-</section>
-<section id="findFlightSection">
-    <h3>Reserve Flights</h3>
-    <form>
-        <div>
-            <label for="flightCode">Flight Code</label>
-            <input type="text" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
-        </div>
-        <div>
-            <label for="airline">Airline</label>
-            <input type="text" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
-        </div>
-        <div>
-            <label for="flightDay">Day</label>
-            <input type="text" class="form-control" placeholder="@flightDay" @bind="@flightDay" disabled />
-        </div>
-        <div>
-            <label for="flightTime">Time</label>
-            <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled />
-        </div>
-        <div>
-            <label for="flightCost">Cost</label>
-            <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
-        </div>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" class="form-control" placeholder="Name" @bind="@clientName" />
-        </div>
-        <div>
-            <label for="citizenship">Citizenship</label>
-            <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
-        </div>
-    </form>
+    </section>
+    <section id="reserveFlightSection">
+        <h3>Reserve Flights</h3>
+        <form>
+            <div>
+                <label for="flightCode">Flight Code</label>
+                <input type="text" class="form-control" placeholder="@flightCode" @bind="@flightCode" disabled />
+            </div>
+            <div>
+                <label for="airline">Airline</label>
+                <input type="text" class="form-control" placeholder="@flightAirline" @bind="@flightAirline" disabled />
+            </div>
+            <div>
+                <label for="flightDay">Day</label>
+                <input type="text" class="form-control" placeholder="@flightDay" @bind="@flightDay" disabled />
+            </div>
+            <div>
+                <label for="flightTime">Time</label>
+                <input type="text" class="form-control" placeholder="@flightFlightTime" @bind="@flightFlightTime" disabled />
+            </div>
+            <div>
+                <label for="flightCost">Cost</label>
+                <input type="text" class="form-control" placeholder="@flightCost" @bind="@flightCost" disabled />
+            </div>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" placeholder="Name" @bind="@clientName" />
+            </div>
+            <div>
+                <label for="citizenship">Citizenship</label>
+                <input type="text" class="form-control" placeholder="Citizenship" @bind="@clientCitizenship" />
+            </div>
+        </form>
 
 
-    <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
-    @if (string.IsNullOrEmpty(clientName))
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
-    else if (selectedFlightCode == null)
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
-    else if (string.IsNullOrEmpty(clientCitizenship))
-    {
-        <p class="text-alert">@errorMessage</p>
-    }
+        <button type="submit" class="btn btn-primary" @onclick="CreateReservation">Reserve</button>
+        @if (string.IsNullOrEmpty(clientName))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (selectedFlightCode == null)
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
+        else if (string.IsNullOrEmpty(clientCitizenship))
+        {
+            <p class="text-alert">@errorMessage</p>
+        }
 
-    <p>Reservation Code: @reservationCode</p>
+        <p>Reservation Code: @reservationCode</p>
+    </section>
 </section>
 
 @code {

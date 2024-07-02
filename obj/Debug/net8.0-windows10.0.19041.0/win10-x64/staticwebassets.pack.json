@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Assignment2OOP.styles.css",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Assignment2OOP.styles.css",
       "PackagePath": "staticwebassets\\Assignment2OOP.styles.css"
     },
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\app.css",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\favicon.png",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\wwwroot\\index.html",
+      "Id": "C:\\OOP2\\oop2\\Assignment2OOP\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
