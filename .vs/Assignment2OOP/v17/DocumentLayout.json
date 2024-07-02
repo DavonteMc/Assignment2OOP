@@ -76,7 +76,7 @@
               "RelativeDocumentMoniker": "Components\\Pages\\Reservations.razor",
               "ToolTip": "C:\\CPRG 211\\Repo Assignment 2\\Assignment2OOP\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Components\\Pages\\Reservations.razor",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAQwJAAAAAbAAAA",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAQwJQAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-30T23:05:57.566Z",
               "EditorCaption": ""
@@ -91,8 +91,7 @@
               "RelativeToolTip": "Data\\ReservationManager.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAwwAgAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:56:03.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T13:56:03.973Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "Data\\Reservation.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAcwEIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:55:50.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T13:55:50.627Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "Data\\FlightManager.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAA1wCMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:55:10.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T13:55:10.663Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "Components\\Pages\\Flights.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAALAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-19T16:17:29.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T16:17:29.02Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "Data\\Flight.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAowCkAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T00:42:43.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-01T00:42:43.903Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "Data\\AirportManager.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:55:38.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T13:55:38.471Z"
             },
             {
               "$type": "Document",
@@ -169,8 +163,7 @@
               "RelativeToolTip": "Resources\\Res\\flights.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-06-24T17:18:49.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-24T17:18:49.847Z"
             },
             {
               "$type": "Document",
@@ -182,8 +175,7 @@
               "RelativeToolTip": "Resources\\Res\\reservations.csv",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-06-30T23:41:56.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T23:41:56.274Z"
             },
             {
               "$type": "Document",
@@ -195,8 +187,7 @@
               "RelativeToolTip": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T23:12:53.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-30T23:12:53.528Z"
             }
           ]
         }
