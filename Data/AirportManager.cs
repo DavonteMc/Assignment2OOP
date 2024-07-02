@@ -17,14 +17,19 @@ namespace Assignment2OOP.Data
             PopulateAirports();
         }
 
+        // PopulateAirports:
+        // This method creates a series of Airports objects from a airports.csv file.
         public void PopulateAirports()
         {
             Airport airport;
-            foreach (string line in File.ReadAllLines(filePath))
+            if (File.Exists(filePath))
             {
-                string[] parts = line.Split(",");
-                airport = new Airport(parts[0], parts[1]);
-                airports.Add(airport);
+                foreach (string line in File.ReadAllLines(filePath))
+                {
+                    string[] parts = line.Split(",");
+                    airport = new Airport(parts[0], parts[1]);
+                    airports.Add(airport);
+                }
             }
         }
 

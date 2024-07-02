@@ -16,14 +16,19 @@ namespace Assignment2OOP.Data
             PopulateFlights();
         }
 
+        // PopulteFlights:
+        // This method creates a series of Flight objects from a flights.csv file.
         public void PopulateFlights()
         {
             Flight flight;
-            foreach (string line in File.ReadAllLines(filePath))
+            if (File.Exists(filePath))
             {
-                string[] parts = line.Split(",");
-                flight = new Flight(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], int.Parse(parts[6]), double.Parse(parts[7]));
-                flights.Add(flight);
+                foreach (string line in File.ReadAllLines(filePath))
+                {
+                    string[] parts = line.Split(",");
+                    flight = new Flight(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], int.Parse(parts[6]), double.Parse(parts[7]));
+                    flights.Add(flight);
+                }
             }
         }
 

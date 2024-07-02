@@ -13,7 +13,7 @@ namespace Assignment2OOP.Data
     public class Flight
     {
         string code;
-        string airline; // Changed to airline instead of Name
+        string airline; 
         string origin;
         string destination;
         string day;
