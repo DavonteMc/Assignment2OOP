@@ -1,6 +1,12 @@
 ﻿@page "/reservations"
 @using Assignment2OOP.Data
 
+@* Assignment 2: Abstract Classes, Event Driven Applications and Exception Handling
+Names: Joshua Louie, Carson Turner and Davonte McLean
+Group: 2
+Date: July 2nd, 2024
+Section: CPRG-211-D *@
+
 <section class="mainPage">
     <section id="findReservationSection">
         <h3>Reservation Finder</h3>
@@ -68,6 +74,7 @@
             </select>
         </div>
     </section>
+
     <section id="reserveSection">
         <h3>Reserve</h3>
         @* Reserve:
@@ -109,6 +116,7 @@
             </div>
         </form>
         <button type="submit" class="btn btn-primary" @onclick="SaveReservation">Save</button>
+        <p>Available seats for this flight: @flightNumberOfSeats</p>
 
         @if (string.IsNullOrEmpty(clientName))
         {
@@ -129,9 +137,9 @@
 
 @code {
     FlightManager flightManager = new FlightManager();
-    List<Flight> flights = FlightManager.GetFlights(); //actual list
+    List<Flight> flights = FlightManager.GetFlights(); 
 
-    List<Reservation> displayReservations = new List<Reservation>(); // display list
+    List<Reservation> displayReservations = new List<Reservation>(); 
 
     ReservationManager reservationManager = new ReservationManager();
     List<Reservation> reservations = ReservationManager.GetReservations();
@@ -141,8 +149,7 @@
     string selectedAirline = "";
     string selectedName = "";
     string selectedReservationCode;
-    Reservation selectedReservation;
-    
+
     //-- Display & Save Reservation Variables -----
     string resCode = "Reservation";
     string flightCode = "Flight";
@@ -153,6 +160,7 @@
     string status;
     string errorMessage;
     string reservationCode;
+    int flightNumberOfSeats;
 
 
     //-- Reservation Finder Methods -----
@@ -186,10 +194,6 @@
     // the method will automatically populate the following section with that reservation.
     void FindReservations()
     {
-
-
-        //When our reservation list persists and has previous reservations from before, the (selectedAirline != "Any") returns null becuase our reservation.csv doesn't have the airline name anymore to filter.
-        //Maybe add airline to reservations.csv to satisfy this method?
 
         displayReservations.Clear();
         if ((selectedCode != "Any") && (selectedAirline != "Any") && (selectedName != "Any"))  // All Any Selected
@@ -271,6 +275,7 @@
             clientName = selectedReservation.Name;
             clientCitizenship = selectedReservation.Citizenship;
             status = selectedReservation.Status;
+
         }
     }
 
@@ -280,7 +285,7 @@
     // A try-catch block is used to retrieve and alter the reservation with the matching code.
     // 5 specific exceptions are caught if an exception is raised before the reservation can be saved.
     // The Persist method is called from the ReservationManager class to save the changes made to the object.
-    public async void SaveReservation() //Trying to figure out how to filter out already added reservations
+    public async void SaveReservation() 
     {        
         {
             try
@@ -288,7 +293,8 @@
                 Reservation savedReservation = reservations.Where(r => r.Code.ToUpper().Contains(selectedReservationCode)).FirstOrDefault();
                 savedReservation.Name = clientName;
                 savedReservation.Citizenship = clientCitizenship;
-                savedReservation.Status = status; 
+                savedReservation.Status = status;
+                flightNumberOfSeats = savedReservation.ResFlight.NumOfSeats;
 
                 if (selectedReservationCode == null)
                 {
@@ -305,15 +311,9 @@
                 {
                     throw new InvalidCitizenshipException();
                 }
-                ReservationManager.PopulateReservations();
-
                 ReservationManager.Persist();
                 errorMessage = string.Empty;
-
-
             }
-
-
             catch (ArgumentNullException f)
             {
                 errorMessage = "No Flight selected. Please select one!";
@@ -336,13 +336,6 @@
             {
                 errorMessage = "Reservation already exists!";
             }
-
-
-
         }
     }
-
-
-
-    
 }

@@ -27,27 +27,28 @@ namespace Assignment2OOP.Data
             }
             set
             {
-                //trying to fix the not null 
-                
-                if (ResFlight != null)
+                if ((status == "active") && (value.ToLower() == "active"))
                 {
-                    switch (value.ToLower())
-                    {
-                        case "active":
-                            ResFlight.NumOfSeats -= 1;
-                            status = "Active";
-                            break;
-                        default:
-                            ResFlight.NumOfSeats += 1;
-                            status = "Inactive"; 
-                            break;
-                    }
-
+                    status = "active";
+                }
+                else if ((status == "inactive") && (value.ToLower() == "inactive"))
+                {
+                    status = "inactive";
                 }
                 else
                 {
-                    status = value;
+                    if (value.ToLower() == "active")
+                    {
+                        ResFlight.NumOfSeats -= 1;
+                        status = "active";
+                    }
+                    else
+                    {
+                        ResFlight.NumOfSeats += 1;
+                        status = "inactive";
+                    }
                 }
+                    
             }
         }
 

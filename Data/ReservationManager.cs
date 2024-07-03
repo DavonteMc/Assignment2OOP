@@ -37,7 +37,6 @@ namespace Assignment2OOP.Data
             while (reservationCodeList.Contains(reservationCode) == true);
             reservationCodeList.Add(reservationCode);
 
-            flight.NumOfSeats -= 1;
             string status = "Active";
             if (flight.NumOfSeats < 1)
             {
@@ -99,18 +98,27 @@ namespace Assignment2OOP.Data
         // A try-catch block is used to catch potential exceptions that are generated when a reservation code that already exists is added as a key.
         public static void PopulateReservations()
         {
-            Reservation resPerList;
-            foreach (string line in File.ReadAllLines(filePath))
+            if (File.Exists(filePath))
             {
-                string[] parts = line.Split(",");
-                Flight flight = FlightManager.getFlightViaCode(parts[1]);
-                resPerList = new Reservation (parts[0], flight, parts[2], parts[3], parts[4]);
-                try
+                string fileLines = File.ReadAllText(filePath);
+                if (!string.IsNullOrEmpty(fileLines))
                 {
-                    reservations.Add(parts[0], resPerList);
-                }
-                catch (Exception ex) 
-                { 
+                    Reservation resPerList;
+                    foreach (string line in File.ReadAllLines(filePath))
+                    {
+                        string[] parts = line.Split(",");
+                        string resCode = parts[0];
+                        string flightCode = parts[1];
+                        Flight flight = FlightManager.getFlightViaCode(flightCode);
+                        resPerList = new Reservation(resCode, flight, parts[2], parts[3], parts[4]);
+                        try
+                        {
+                            reservations.Add(parts[0], resPerList);
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -130,3 +138,4 @@ namespace Assignment2OOP.Data
 
     }
 }
+

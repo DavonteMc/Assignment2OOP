@@ -2,6 +2,12 @@
 @using Assignment2OOP.Data
 @using Microsoft.AspNetCore.Components.Web
 
+@* Assignment 2: Abstract Classes, Event Driven Applications and Exception Handling
+Names: Joshua Louie, Carson Turner and Davonte McLean
+Group: 2
+Date: July 2nd, 2024
+Section: CPRG-211-D *@
+
 <section class="mainPage">
     <section id="findFlightSection">
         <h3>Flight Finder</h3>
@@ -132,13 +138,10 @@
     List<Airport> airports = AirportManager.GetAirports();
     List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
-
     FlightManager flightManager = new FlightManager();
     List<Flight> flights = FlightManager.GetFlights(); //actual list
 
     List<Flight> displayFlights = new List<Flight>(); // display list
-
-
 
     //-- Flight Finder Variables -----
     string selectedOrigin = "";
@@ -187,8 +190,6 @@
     // the method will automatically populate the following section with that flight.
     void FlightSearch()
     {
-
-
         displayFlights.Clear();
         if ((selectedOrigin == "Any") && (selectedDestination == "Any") && (selectedDay == "Any")) // All Any
         {
@@ -286,8 +287,6 @@
             reservationCode = ReservationManager.MakeReservation(selectedFlight, clientName, clientCitizenship);
             errorMessage = string.Empty;
         }
-
-
         catch (ArgumentNullException f)
         {
             errorMessage = "No Flight selected. Please select one!";
@@ -310,7 +309,5 @@
         {
             errorMessage = "Reservation already exists!";
         }
-
     }
-
 }
